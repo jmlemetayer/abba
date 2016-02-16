@@ -1,0 +1,10 @@
+DISTURL=jmlemetayer.github.io/abba/dist
+DOWNLOAD="curl -s -L"
+
+mkdir -p abba/css abba/js
+${DOWNLOAD} ${DISTURL}/htaccess > .htaccess
+${DOWNLOAD} ${DISTURL}/header.shtml > abba/header.shtml
+${DOWNLOAD} ${DISTURL}/footer.shtml > abba/footer.shtml
+${DOWNLOAD} ${DISTURL}/js/iefix.js > abba/js/iefix.js
+${DOWNLOAD} ${DISTURL}/js/script.js > abba/js/script.js
+${DOWNLOAD} ${DISTURL}/css/default.css > abba/css/style.css
