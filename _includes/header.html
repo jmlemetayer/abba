@@ -1,16 +1,13 @@
----
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/x-icon" href="{{ site.url }}/favicon.ico">
-	<title>server</title>
-	<link href="{{ site.url }}/dist/css/template.css" rel="stylesheet">
+	<title>{{ page.server }}</title>
+	<link href="{{ page.assets }}/css/{{ page.css }}.css" rel="stylesheet">
 	<!--[if lt IE 9]>
-	<script src="{{ site.url }}/dist/js/iefix.js"></script>
+	<script src="{{ page.assets }}/js/iefix.js"></script>
 	<![endif]-->
 </head>
 <body>
@@ -18,7 +15,7 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/">server</a>
+				<a class="navbar-brand" href="/">{{ page.server }}</a>
 			</div>
 		</div>
 	</nav>
@@ -26,10 +23,3 @@
 <main>
 	<div class="container">
 		<div class="table-responsive" style="display:none" id="table">
-			{% include root.html %}
-		</div>
-	</div>
-</main>
-<script src="{{ site.url }}/dist/js/script.js"></script>
-</body>
-</html>
