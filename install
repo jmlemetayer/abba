@@ -1,10 +1,53 @@
 DISTURL=jmlemetayer.github.io/abba/dist
-DOWNLOAD="curl -s -L"
+THEMES=default:cerulean:cosmo:cyborg:darkly:flatly:journal:lumen:paper:readable:sandstone:simplex:slate:spacelab:superhero:united:yeti
 
-mkdir -p abba/css abba/js
-${DOWNLOAD} ${DISTURL}/htaccess > .htaccess
-${DOWNLOAD} ${DISTURL}/header.shtml > abba/header.shtml
-${DOWNLOAD} ${DISTURL}/footer.shtml > abba/footer.shtml
-${DOWNLOAD} ${DISTURL}/js/iefix.js > abba/js/iefix.js
-${DOWNLOAD} ${DISTURL}/js/script.js > abba/js/script.js
-${DOWNLOAD} ${DISTURL}/css/default.css > abba/css/style.css
+# Self remove on exit
+trap "rm $0" EXIT
+
+# Print the theme list
+echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) print i ") " $i }'
+
+while true
+do
+	# Ask wanted theme. Could be empty, a number or a string
+	read -p "What theme do you want to use? [default] " THEME
+	# If empty, set to default
+	[ -z "${THEME}" ] && THEME=default
+	# If a number, set to the theme associated name
+	[ ${THEME} -eq ${THEME} ] 2>/dev/null && THEME=$(echo ${THEMES} | awk -F: '{ print $'${THEME}' }')
+	# If a string, check if it's a theme in the list
+	THEME=$(echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) if ($i == "'${THEME}'") print $i }')
+	# If not empty, got to next step
+	[ -n "${THEME}" ] && break
+done
+
+try_sudo() {
+while true
+do
+	# Try to execute command
+	${SUDO} $@ 2>/dev/null
+	# If failed try with sudo
+	[ $? = 0 ] && break || SUDO=sudo
+done
+}
+
+# If the abba directory already exist
+if [ -d abba ]
+then
+	# Remove the abba directory
+	try_sudo rm -rf abba
+	# Ask before replace htaccess
+	${SUDO} rm -fi .htaccess
+fi
+
+# Create the abba directory
+try_sudo mkdir -p abba/css abba/js
+
+# Download the needed files
+${SUDO} curl -sL ${DISTURL}/htaccess -o .htaccess && \
+${SUDO} curl -sL ${DISTURL}/header.shtml -o abba/header.shtml && \
+${SUDO} curl -sL ${DISTURL}/footer.shtml -o abba/footer.shtml && \
+${SUDO} curl -sL ${DISTURL}/js/iefix.js -o abba/js/iefix.js && \
+${SUDO} curl -sL ${DISTURL}/js/script.js -o abba/js/script.js && \
+${SUDO} curl -sL ${DISTURL}/css/${THEME}.css -o abba/css/style.css && \
+true || { echo >&2 "Failed to install abba"; false; }
