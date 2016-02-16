@@ -1,0 +1,24 @@
+DirectoryIndex disabled
+
+AddType text/html .shtml
+AddOutputFilter INCLUDES .shtml
+
+Options +Indexes
+Options +Includes
+
+IndexOptions Charset=UTF-8
+IndexOptions FancyIndexing
+IndexOptions SuppressHTMLPreamble
+IndexOptions HTMLTable
+IndexOptions VersionSort
+IndexOptions SuppressDescription
+IndexOptions SuppressIcon
+IndexOptions SuppressRules
+IndexOptions FoldersFirst
+IndexOptions IgnoreCase
+IndexOptions NameWidth=*
+
+HeaderName /abba/header.shtml
+ReadmeName /abba/footer.shtml
+
+IndexIgnore abba
