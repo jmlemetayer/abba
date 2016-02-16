@@ -31,20 +31,17 @@ do
 done
 }
 
-# If the abba directory already exist
-if [ -d abba ]
-then
-	# Remove the abba directory
-	try_sudo rm -rf abba
-	# Ask before replace htaccess
-	${SUDO} rm -fi .htaccess
-fi
+# Remove the abba directory if already exist
+[ -d abba ] && try_sudo rm -rf abba
 
 # Create the abba directory
 try_sudo mkdir -p abba/css abba/js
 
+# Ask before replace htaccess
+[ -f .htaccess ] && ${SUDO} rm -i .htaccess
+[ -f .htaccess ] || ${SUDO} curl -sL ${DISTURL}/htaccess -o .htaccess
+
 # Download the needed files
-${SUDO} curl -sL ${DISTURL}/htaccess -o .htaccess && \
 ${SUDO} curl -sL ${DISTURL}/header.shtml -o abba/header.shtml && \
 ${SUDO} curl -sL ${DISTURL}/footer.shtml -o abba/footer.shtml && \
 ${SUDO} curl -sL ${DISTURL}/js/iefix.js -o abba/js/iefix.js && \
