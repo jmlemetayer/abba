@@ -21,6 +21,20 @@ $(document).ready(function() {
 	/* Move table header in thead */
 	var header = $('table tbody tr').first();
 	$('table').prepend($('<thead/>').append(header));
+	/* Parse each row */
+	$('table tbody tr').each(function(i) {
+		var name = $('a', this).first().text();
+		/* Remove "Parent Directory" row */
+		if (name === 'Parent Directory' && i === 0) {
+			if ($.trim($('td', this).last().html()) === '-') {
+				$(this).remove();
+			}
+		/* Set directory row style */
+		} else if (name.substring(name.length - 1) === '/') {
+			$(this).addClass('active');
+			$('td', this).last().html('');
+		}
+	});
 	/* Show table */
 	$('#table').show();
 });
