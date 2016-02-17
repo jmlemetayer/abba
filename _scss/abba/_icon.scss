@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'icon';
+	src: url("#{$icon-font-path}icon.eot?sqzzoy");
+	src: url("#{$icon-font-path}icon.eot?sqzzoy#iefix") format("embedded-opentype"),
+	url("#{$icon-font-path}icon.ttf?sqzzoy") format("truetype"),
+	url("#{$icon-font-path}icon.woff?sqzzoy") format("woff"),
+	url("#{$icon-font-path}icon.svg?sqzzoy#icon") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon {
+	font-family: 'icon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before		{ content: "\f002"; }
+.icon-home:before		{ content: "\f015"; }
+.icon-file:before		{ content: "\f016"; }
+.icon-lock:before		{ content: "\f023"; }
+.icon-arrow-left:before		{ content: "\f060"; }
+.icon-folder:before		{ content: "\f07b"; }
+.icon-abba:before		{ content: "\f07c"; }
+.icon-file-text:before		{ content: "\f0f6"; }
+.icon-ambulance:before		{ content: "\f0f9"; }
+.icon-file-pdf:before		{ content: "\f1c1"; }
+.icon-file-word:before		{ content: "\f1c2"; }
+.icon-file-excel:before		{ content: "\f1c3"; }
+.icon-file-powerpoint:before	{ content: "\f1c4"; }
+.icon-file-image:before		{ content: "\f1c5"; }
+.icon-file-archive:before	{ content: "\f1c6"; }
+.icon-file-audio:before		{ content: "\f1c7"; }
+.icon-file-movie:before		{ content: "\f1c8"; }
+.icon-file-code:before		{ content: "\f1c9"; }
+
+@mixin icon-lg {
+	font-size: (4em / 3);
+	line-height: (3em / 4);
+	vertical-align: -15%;
+}

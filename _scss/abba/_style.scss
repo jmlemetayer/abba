@@ -1,3 +1,13 @@
 .navbar-brand {
 	text-transform: uppercase;
 }
+
+.icon-abba {
+	margin-right: 10px;
+
+	@include icon-lg;
+}
+
+.icon-home {
+	@include icon-lg;
+}

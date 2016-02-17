@@ -35,7 +35,7 @@ done
 [ -d abba ] && try_sudo rm -rf abba
 
 # Create the abba directory
-try_sudo mkdir -p abba/css abba/js
+try_sudo mkdir -p abba/css abba/js abba/fonts
 
 # Ask before replace htaccess
 [ -f .htaccess ] && ${SUDO} rm -i .htaccess
@@ -48,4 +48,8 @@ ${SUDO} curl -sL ${DISTURL}/favicon.ico -o abba/favicon.ico && \
 ${SUDO} curl -sL ${DISTURL}/js/iefix.js -o abba/js/iefix.js && \
 ${SUDO} curl -sL ${DISTURL}/js/script.js -o abba/js/script.js && \
 ${SUDO} curl -sL ${DISTURL}/css/${THEME}.css -o abba/css/style.css && \
+${SUDO} curl -sL ${DISTURL}/fonts/icon.eot -o abba/fonts/icon.eot && \
+${SUDO} curl -sL ${DISTURL}/fonts/icon.ttf -o abba/fonts/icon.ttf && \
+${SUDO} curl -sL ${DISTURL}/fonts/icon.woff -o abba/fonts/icon.woff && \
+${SUDO} curl -sL ${DISTURL}/fonts/icon.svg -o abba/fonts/icon.svg && \
 true || { echo >&2 "Failed to install abba"; false; }
