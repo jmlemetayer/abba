@@ -44,6 +44,7 @@ try_sudo mkdir -p abba/css abba/js
 # Download the needed files
 ${SUDO} curl -sL ${DISTURL}/header.shtml -o abba/header.shtml && \
 ${SUDO} curl -sL ${DISTURL}/footer.shtml -o abba/footer.shtml && \
+${SUDO} curl -sL ${DISTURL}/favicon.ico -o abba/favicon.ico && \
 ${SUDO} curl -sL ${DISTURL}/js/iefix.js -o abba/js/iefix.js && \
 ${SUDO} curl -sL ${DISTURL}/js/script.js -o abba/js/script.js && \
 ${SUDO} curl -sL ${DISTURL}/css/${THEME}.css -o abba/css/style.css && \
