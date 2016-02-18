@@ -1,5 +1,6 @@
 ---
 server: <!--#echo var="SERVER_NAME" -->
+root:
 assets: /abba
 css: style
 ---

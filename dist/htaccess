@@ -22,3 +22,4 @@ HeaderName /abba/header.shtml
 ReadmeName /abba/footer.shtml
 
 IndexIgnore abba
+IndexIgnore favicon.ico
