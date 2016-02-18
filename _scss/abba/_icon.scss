@@ -11,6 +11,7 @@
 
 .icon {
 	font-family: 'icon' !important;
+	display: inline-block;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -44,4 +45,9 @@
 	font-size: (4em / 3);
 	line-height: (3em / 4);
 	vertical-align: -15%;
+}
+
+@mixin icon-fw {
+	width: (18em / 14);
+	text-align: center;
 }

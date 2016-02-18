@@ -1,13 +1,22 @@
 .navbar-brand {
 	text-transform: uppercase;
+
+	.icon-abba {
+		margin-right: $navbar-padding-horizontal;
+
+		@include icon-lg;
+	}
 }
 
-.icon-abba {
-	margin-right: 10px;
-
-	@include icon-lg;
+.breadcrumb {
+	.icon-home {
+		@include icon-lg;
+	}
 }
 
-.icon-home {
-	@include icon-lg;
+.table {
+	.icon {
+		margin-right: $table-cell-padding;
+		@include icon-fw;
+	}
 }
