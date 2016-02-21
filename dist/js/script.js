@@ -13,10 +13,8 @@
 {% comment %}{% include js/bootstrap/scrollspy.js %}{% endcomment %}
 {% comment %}{% include js/bootstrap/tab.js %}{% endcomment %}
 {% comment %}{% include js/bootstrap/affix.js %}{% endcomment %}
-function addIcon(obj, name) {
-	obj.prepend('<span class="icon icon-' + name + '">');
-}
 $(document).ready(function() {
+	{% include js/suffixdb.js %}
 	/* Use Bootstrap table */
 	$('table').addClass('table table-hover');
 	/* Remove align="right" */
@@ -37,10 +35,15 @@ $(document).ready(function() {
 		} else if (name.substring(name.length - 1) === '/') {
 			$(this).addClass('active');
 			$('td', this).last().html('');
-			addIcon(a, 'folder');
+			a.prepend('<span class="icon icon-folder">');
 		/* Set file row style */
 		} else {
-			addIcon(a, 'file');
+			var suffix = name.substr(name.lastIndexOf('.') + 1).toLowerCase();
+			if (suffix in suffixdb) {
+				a.prepend('<span class="icon icon-file-' + suffixdb[suffix] + '">');
+			} else {
+				a.prepend('<span class="icon icon-file">');
+			}
 		}
 	});
 	/* Create Breadcrumb */
