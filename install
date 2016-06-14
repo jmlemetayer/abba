@@ -1,4 +1,5 @@
-DISTURL=jmlemetayer.github.io/abba/dist
+ABBAURL=jmlemetayer.github.io/abba
+DISTURL=${ABBAURL}/dist
 THEMES=default:cerulean:cosmo:cyborg:darkly:flatly:journal:lumen:paper:readable:sandstone:simplex:slate:spacelab:superhero:united:yeti
 
 # Self remove on exit
@@ -45,7 +46,7 @@ ${SUDO} rm -f favicon.ico
 [ -f .htaccess ] || ${SUDO} curl -sL ${DISTURL}/htaccess -o .htaccess
 
 # Download the needed files
-${SUDO} curl -sL ${DISTURL}/favicon.ico -o favicon.ico && \
+${SUDO} curl -sL ${ABBAURL}/favicon.ico -o favicon.ico && \
 ${SUDO} curl -sL ${DISTURL}/header.shtml -o abba/header.shtml && \
 ${SUDO} curl -sL ${DISTURL}/footer.shtml -o abba/footer.shtml && \
 ${SUDO} curl -sL ${DISTURL}/js/iefix.js -o abba/js/iefix.js && \
