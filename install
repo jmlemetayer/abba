@@ -38,21 +38,20 @@ then
 	done
 fi
 
-try_sudo() {
+# Check if we have enough permissions
 while true
 do
-	# Try to execute command
-	${SUDO} $@ 2>/dev/null
+	# Try to modify current directory
+	${SUDO} touch . 2>/dev/null
 	# If failed try with sudo
 	[ $? = 0 ] && break || SUDO=sudo
 done
-}
 
 # Remove the abba directory if already exist
-[ -d abba ] && try_sudo rm -rf abba
+[ -d abba ] && ${SUDO} rm -rf abba
 
 # Create the abba directory
-try_sudo mkdir -p abba/css abba/js abba/fonts
+${SUDO} mkdir -p abba/css abba/js abba/fonts
 
 # Remove favicon
 ${SUDO} rm -f favicon.ico
