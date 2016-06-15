@@ -5,22 +5,38 @@ THEMES=default:cerulean:cosmo:cyborg:darkly:flatly:journal:lumen:paper:readable:
 # Self remove on exit
 trap "rm $0" EXIT
 
-# Print the theme list
-echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) print i ") " $i }'
-
-while true
-do
-	# Ask wanted theme. Could be empty, a number or a string
-	read -p "What theme do you want to use? [default] " THEME
+# Check if theme name is valid
+# $1: Theme name
+# return: Valid theme name or empty
+check_theme() {
+	local THEME=${1}
 	# If empty, set to default
 	[ -z "${THEME}" ] && THEME=default
 	# If a number, set to the theme associated name
 	[ ${THEME} -eq ${THEME} ] 2>/dev/null && THEME=$(echo ${THEMES} | awk -F: '{ print $'${THEME}' }')
 	# If a string, check if it's a theme in the list
-	THEME=$(echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) if ($i == "'${THEME}'") print $i }')
-	# If not empty, got to next step
-	[ -n "${THEME}" ] && break
-done
+	echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) if ($i == "'${THEME}'") print $i }'
+}
+
+# Manage arguments
+[ -n "${1}" ] && THEME=$(check_theme ${1})
+
+# If no valid theme in arguments
+if [ -z "${THEME}" ]
+then
+	# Print the theme list
+	echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) print i ") " $i }'
+
+	while true
+	do
+		# Ask wanted theme. Could be empty, a number or a string
+		read -p "What theme do you want to use? [default] " THEME
+		# Check theme name
+		THEME=$(check_theme ${THEME})
+		# If not empty, go to next step
+		[ -n "${THEME}" ] && break
+	done
+fi
 
 try_sudo() {
 while true
