@@ -9,6 +9,25 @@
 }
 
 .breadcrumb {
+	white-space: nowrap;
+	overflow-x: auto;
+
+	@media (max-width: $screen-xs-max) {
+		li {
+			&:nth-child(n + 2) {
+				display: none;
+			}
+
+			&:nth-last-child(-n + 2) {
+				display: inline-block;
+			}
+
+			&:nth-last-child(2)::before {
+				content: '...';
+			}
+		}
+	}
+
 	.icon-home {
 		@include icon-lg;
 	}
