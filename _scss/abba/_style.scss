@@ -27,6 +27,10 @@
 			&:nth-last-child(2)::before {
 				content: '...';
 			}
+
+			&:first-child::before {
+				content: none;
+			}
 		}
 	}
 
