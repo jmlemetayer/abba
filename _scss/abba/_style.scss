@@ -51,8 +51,12 @@
 }
 
 .table {
+	white-space: nowrap;
+	overflow-x: auto;
+
 	.icon {
 		margin-right: $table-cell-padding;
+
 		@include icon-fw;
 	}
 }
