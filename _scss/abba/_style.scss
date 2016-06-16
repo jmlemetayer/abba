@@ -20,16 +20,27 @@
 				display: none;
 			}
 
-			&:nth-last-child(-n + 2) {
+			&:nth-last-child(-n + 3) {
 				display: inline-block;
 			}
 
-			&:nth-last-child(2)::before {
-				content: '...';
+			&:nth-last-child(3) {
+				visibility: hidden;
+				width: 19px;
+
+				&::before {
+					visibility: visible;
+					content: '...';
+				}
 			}
 
-			&:first-child::before {
-				content: none;
+			&:first-child {
+				visibility: visible;
+				width: 19px;
+
+				&::before {
+					content: none;
+				}
 			}
 		}
 	}
