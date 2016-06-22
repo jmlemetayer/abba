@@ -1,4 +1,5 @@
 ---
+layout:
 ---
 {% include js/jquery.min.js %}
 {% comment %}{% include js/bootstrap/transition.js %}{% endcomment %}

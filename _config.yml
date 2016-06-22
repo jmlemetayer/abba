@@ -1,3 +1,12 @@
 sass:
-        sass_dir: _scss
-        style: :compressed
+    sass_dir: _scss
+    style: compressed
+defaults:
+    -
+        scope:
+            path: ""
+        values:
+            layout: default
+            assets: /dist
+            css: default
+            title: abba.jmldev.net
