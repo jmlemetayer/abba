@@ -1,0 +1,6 @@
+---
+assets:	/abba
+css:	style
+layout:	error_404
+title:	<!--#echo var="SERVER_NAME" -->
+---

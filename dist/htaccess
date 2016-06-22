@@ -23,3 +23,8 @@ ReadmeName /abba/footer.shtml
 
 IndexIgnore abba
 IndexIgnore favicon.ico
+
+ErrorDocument 401 /abba/error_401.shtml
+ErrorDocument 403 /abba/error_403.shtml
+ErrorDocument 404 /abba/error_404.shtml
+ErrorDocument 500 /abba/error_500.shtml
