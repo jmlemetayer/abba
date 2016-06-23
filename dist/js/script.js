@@ -23,6 +23,23 @@ $(document).ready(function() {
 	/* Move table header in thead */
 	var header = $('table tbody tr').first();
 	$('table').prepend($('<thead/>').append(header));
+	/* Add sorting arrows */
+	var name = $('a', header).eq(0);
+	var date = $('a', header).eq(1);
+	var size = $('a', header).eq(2);
+	if(/\/$/.test(document.URL) || /\?C=N;O=A$/.test(document.URL)) {
+		name.append('<span class="icon icon-down">');
+	} else if(/\?C=N;O=D$/.test(document.URL)) {
+		name.append('<span class="icon icon-up">');
+	} else if(/\?C=M;O=A$/.test(document.URL)) {
+		date.append('<span class="icon icon-down">');
+	} else if(/\?C=M;O=D$/.test(document.URL)) {
+		date.append('<span class="icon icon-up">');
+	} else if(/\?C=S;O=A$/.test(document.URL)) {
+		size.append('<span class="icon icon-down">');
+	} else if(/\?C=S;O=D$/.test(document.URL)) {
+		size.append('<span class="icon icon-up">');
+	}
 	/* Parse each row */
 	$('table tbody tr').each(function(i) {
 		var a = $('a', this).first();

@@ -55,8 +55,14 @@
 	overflow-x: auto;
 
 	.icon {
-		margin-right: $table-cell-padding;
-
 		@include icon-fw;
+	}
+
+	thead .icon {
+		margin-left: $table-cell-padding;
+	}
+
+	tbody .icon {
+		margin-right: $table-cell-padding;
 	}
 }
