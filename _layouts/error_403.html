@@ -2,5 +2,17 @@
 layout: default
 ---
 <div class="jumbotron">
-	<h1>Forbidden</h1>
+	<h1>
+		Forbidden
+		<span class="icon icon-lock" aria-hidden="true"></span>
+	</h1>
+	<p>
+		You don't have permission to access
+		<b class="url">{% if page.uri %}{{ page.uri }}{% else %}{{ page.url }}{% endif %}</b>
+		on this server.
+	</p>
+	<button class="btn btn-primary">
+		<span class="icon icon-left" aria-hidden="true"></span>
+		Back
+	</button>
 </div>

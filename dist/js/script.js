@@ -78,4 +78,12 @@ $(document).ready(function() {
 	/* Show table */
 	$('#breadcrumb').show();
 	$('#table').show();
+	/* Decode url */
+	$('.url').each(function() {
+		$(this).html(decodeURIComponent($(this).text()));
+	});
+	/* Back button */
+	$('.btn').click(function() {
+		history.go(-1);
+	});
 });

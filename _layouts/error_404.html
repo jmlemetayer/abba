@@ -2,5 +2,17 @@
 layout: default
 ---
 <div class="jumbotron">
-	<h1>Not Found</h1>
+	<h1>
+		Not Found
+		<span class="icon icon-search" aria-hidden="true"></span>
+	</h1>
+	<p>
+		The requested url
+		<b class="url">{% if page.uri %}{{ page.uri }}{% else %}{{ page.url }}{% endif %}</b>
+		was not found on this server.
+	</p>
+	<button class="btn btn-primary">
+		<span class="icon icon-left" aria-hidden="true"></span>
+		Back
+	</button>
 </div>

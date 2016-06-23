@@ -66,3 +66,11 @@
 		margin-right: $table-cell-padding;
 	}
 }
+
+.jumbotron {
+	margin-top: 15%;
+
+	h1 .icon {
+		color: $brand-primary;
+	}
+}
