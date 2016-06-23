@@ -48,15 +48,20 @@ $(document).ready(function() {
 		}
 	});
 	/* Create Breadcrumb */
-	var directories = location.href.split('/').slice(3, -1);
+	var directories = document.URL.split('/').slice(3, -1);
+	var active = $('.breadcrumb li').hasClass('active');
 	if (directories.length > 0) {
 		var href = '/';
-		$('.breadcrumb li').removeAttr('class').wrapInner('<a href="' + href + '">');
+		if (active) {
+			$('.breadcrumb li').removeAttr('class').wrapInner('<a href="' + href + '">');
+		}
 		$.each(directories, function(i ,directory) {
 			href += directory + '/';
 			$('.breadcrumb').append('<li><a href="' + href + '">' + decodeURIComponent(directory));
 		});
-		$('.breadcrumb li').last().addClass('active').children('a').contents().unwrap();
+		if (active) {
+			$('.breadcrumb li').last().addClass('active').children('a').contents().unwrap();
+		}
 	}
 	/* Show table */
 	$('#table').show();

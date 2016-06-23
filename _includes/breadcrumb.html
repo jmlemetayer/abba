@@ -1,8 +1,17 @@
 <nav>
 	<ol class="breadcrumb">
+		{% if layout.breadcrumb %}
+		<li>
+			<a href="/">
+				<span class="icon icon-home" aria-hidden="true"></span>
+				<span class="sr-only">{{ page.title }}</span>
+			</a>
+		</li>
+		{% else %}
 		<li class="active">
 			<span class="icon icon-home" aria-hidden="true"></span>
 			<span class="sr-only">{{ page.title }}</span>
 		</li>
+		{%endif %}
 	</ol>
 </nav>
