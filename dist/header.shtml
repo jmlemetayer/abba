@@ -1,8 +1,8 @@
 ---
-assets:	/.abba
-css:	style
+assets: /.abba
+css: style
 layout:
-title:	<!--#echo var="SERVER_NAME" -->
+title: <!--#echo var="SERVER_NAME" -->
 ---
 {% include header.html %}
 {% include breadcrumb.html %}
