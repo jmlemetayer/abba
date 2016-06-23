@@ -1,5 +1,5 @@
 ---
-assets:	/abba
+assets:	/.abba
 layout:
 ---
 {% include table_footer.html %}

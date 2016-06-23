@@ -47,10 +47,10 @@ do
 done
 
 # Remove the abba directory if already exist
-[ -d abba ] && ${SUDO} rm -rf abba
+[ -d .abba ] && ${SUDO} rm -rf .abba
 
 # Create the abba directory
-${SUDO} mkdir -p abba/css abba/js abba/fonts
+${SUDO} mkdir -p .abba/css .abba/js .abba/fonts
 
 # Remove favicon
 ${SUDO} rm -f favicon.ico
@@ -61,17 +61,17 @@ ${SUDO} rm -f favicon.ico
 
 # Download the needed files
 ${SUDO} curl -sL ${ABBAURL}/favicon.ico -o favicon.ico && \
-${SUDO} curl -sL ${ABBAURL}/dist/header.shtml -o abba/header.shtml && \
-${SUDO} curl -sL ${ABBAURL}/dist/footer.shtml -o abba/footer.shtml && \
-${SUDO} curl -sL ${ABBAURL}/dist/error_401.shtml -o abba/error_401.shtml && \
-${SUDO} curl -sL ${ABBAURL}/dist/error_403.shtml -o abba/error_403.shtml && \
-${SUDO} curl -sL ${ABBAURL}/dist/error_404.shtml -o abba/error_404.shtml && \
-${SUDO} curl -sL ${ABBAURL}/dist/error_500.shtml -o abba/error_500.shtml && \
-${SUDO} curl -sL ${ABBAURL}/dist/js/iefix.js -o abba/js/iefix.js && \
-${SUDO} curl -sL ${ABBAURL}/dist/js/script.js -o abba/js/script.js && \
-${SUDO} curl -sL ${ABBAURL}/dist/css/${THEME}.css -o abba/css/style.css && \
-${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.eot -o abba/fonts/icon.eot && \
-${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.ttf -o abba/fonts/icon.ttf && \
-${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.woff -o abba/fonts/icon.woff && \
-${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.svg -o abba/fonts/icon.svg && \
+${SUDO} curl -sL ${ABBAURL}/dist/header.shtml -o .abba/header.shtml && \
+${SUDO} curl -sL ${ABBAURL}/dist/footer.shtml -o .abba/footer.shtml && \
+${SUDO} curl -sL ${ABBAURL}/dist/error_401.shtml -o .abba/error_401.shtml && \
+${SUDO} curl -sL ${ABBAURL}/dist/error_403.shtml -o .abba/error_403.shtml && \
+${SUDO} curl -sL ${ABBAURL}/dist/error_404.shtml -o .abba/error_404.shtml && \
+${SUDO} curl -sL ${ABBAURL}/dist/error_500.shtml -o .abba/error_500.shtml && \
+${SUDO} curl -sL ${ABBAURL}/dist/js/iefix.js -o .abba/js/iefix.js && \
+${SUDO} curl -sL ${ABBAURL}/dist/js/script.js -o .abba/js/script.js && \
+${SUDO} curl -sL ${ABBAURL}/dist/css/${THEME}.css -o .abba/css/style.css && \
+${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.eot -o .abba/fonts/icon.eot && \
+${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.ttf -o .abba/fonts/icon.ttf && \
+${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.woff -o .abba/fonts/icon.woff && \
+${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.svg -o .abba/fonts/icon.svg && \
 true || { echo >&2 "Failed to install abba"; false; }
