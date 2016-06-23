@@ -64,5 +64,6 @@ $(document).ready(function() {
 		}
 	}
 	/* Show table */
+	$('#breadcrumb').show();
 	$('#table').show();
 });
