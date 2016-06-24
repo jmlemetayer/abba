@@ -33,22 +33,22 @@ $(document).ready(function() {
 	}
 	if(/\/$/.test(document.URL) || /\?C=N;O=A$/.test(document.URL)) {
 		filter = '';
-		name.append('<span class="icon icon-down">');
+		name.append('<span class="icon icon-up">');
 	} else if(/\?C=N;O=D$/.test(document.URL)) {
 		filter = '?C=N;O=D';
-		name.append('<span class="icon icon-up">');
+		name.append('<span class="icon icon-down">');
 	} else if(/\?C=M;O=A$/.test(document.URL)) {
 		filter = '?C=M;O=A';
-		date.append('<span class="icon icon-down">');
+		date.append('<span class="icon icon-up">');
 	} else if(/\?C=M;O=D$/.test(document.URL)) {
 		filter = '?C=M;O=D';
-		date.append('<span class="icon icon-up">');
+		date.append('<span class="icon icon-down">');
 	} else if(/\?C=S;O=A$/.test(document.URL)) {
 		filter = '?C=S;O=A';
-		size.append('<span class="icon icon-down">');
+		size.append('<span class="icon icon-up">');
 	} else if(/\?C=S;O=D$/.test(document.URL)) {
 		filter = '?C=S;O=D';
-		size.append('<span class="icon icon-up">');
+		size.append('<span class="icon icon-down">');
 	}
 	/* Update home link */
 	var home = $('a.navbar-brand');
