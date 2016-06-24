@@ -27,6 +27,9 @@ $(document).ready(function() {
 	var name = $('a', header).eq(0);
 	var date = $('a', header).eq(1);
 	var size = $('a', header).eq(2);
+	if (name.attr('href') === '?C=N;O=A') {
+		name.attr('href', '.');
+	}
 	if(/\/$/.test(document.URL) || /\?C=N;O=A$/.test(document.URL)) {
 		name.append('<span class="icon icon-down">');
 	} else if(/\?C=N;O=D$/.test(document.URL)) {

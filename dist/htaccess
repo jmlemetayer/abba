@@ -18,6 +18,8 @@ IndexOptions FoldersFirst
 IndexOptions IgnoreCase
 IndexOptions NameWidth=*
 
+IndexOrderDefault Ascending Name
+
 HeaderName /.abba/header.shtml
 ReadmeName /.abba/footer.shtml
 
