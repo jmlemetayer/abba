@@ -3,4 +3,5 @@ assets: /.abba
 css: style
 layout: error_403
 title: <!--#echo var="SERVER_NAME" -->
+uri: <!--#echo var="REQUEST_URI" -->
 ---
