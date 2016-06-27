@@ -24,7 +24,7 @@ $(document).ready(function() {
 	var header = $('table tbody tr').first();
 	$('table').prepend($('<thead/>').append(header));
 	/* Add sorting arrows */
-	var filter;
+	var filter = '';
 	var name = $('a', header).eq(0);
 	var date = $('a', header).eq(1);
 	var size = $('a', header).eq(2);
@@ -32,7 +32,6 @@ $(document).ready(function() {
 		name.attr('href', '.');
 	}
 	if(/\/$/.test(document.URL) || /\?C=N;O=A$/.test(document.URL)) {
-		filter = '';
 		name.append('<span class="icon icon-up">');
 	} else if(/\?C=N;O=D$/.test(document.URL)) {
 		filter = '?C=N;O=D';
