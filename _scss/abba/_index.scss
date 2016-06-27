@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:500,700,900");
+
+.jumbotron {
+	padding: 50px 0 0;
+	text-align: center;
+	background-color: $brand-primary;
+
+	.title {
+		font-size: 64px;
+		font-weight: 900;
+	}
+
+	.subtitle {
+		color: $brand-danger;
+		font-size: 27px;
+
+		a {
+			color: $brand-info;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: $brand-info;
+			}
+		}
+	}
+
+	.github {
+		margin: 50px 0 0;
+		background: rgba(0, 0, 0, 0.1);
+		padding: 20px 0 10px;
+	}
+}
