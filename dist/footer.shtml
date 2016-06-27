@@ -4,3 +4,4 @@ layout:
 ---
 {% include table_footer.html %}
 {% include footer.html %}
+{% include bottom.html %}

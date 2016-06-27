@@ -9,4 +9,5 @@ defaults:
             layout: default
             assets: /dist
             css: default
+            js: script
             title: abba.jmldev.net

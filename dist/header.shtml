@@ -4,6 +4,7 @@ css: style
 layout:
 title: <!--#echo var="SERVER_NAME" -->
 ---
+{% include top.html %}
 {% include header.html %}
 {% include breadcrumb.html %}
 {% include table_header.html %}
