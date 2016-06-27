@@ -93,7 +93,8 @@ $(document).ready(function() {
 	$('#table').show();
 	/* Decode url */
 	$('.url').each(function() {
-		$(this).html(decodeURIComponent($(this).text()));
+		var url = decodeURIComponent($(this).text());
+		$(this).html(/^[^?]*/.exec(url)[0]);
 	});
 	/* Back button */
 	$('.btn').click(function() {
