@@ -3,17 +3,167 @@ layout: empty
 css: index
 js: index
 ---
-<section class="jumbotron">
-	<h1 class="title">ABBA</h1>
-	<h3 class="subtitle">
+<header>
+	<h1>ABBA</h1>
+	<h3>
 		<a href="https://httpd.apache.org">Apache</a>
 		<a href="https://getbootstrap.com">Bootstrap</a> &
 		<a href="https://bootswatch.com">Bootswatch</a>
 		<a href="https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html">Autoindex</a>
 	</h3>
-	<h2 class="subtitle">Mamma mia, let's be beautiful</h2>
-	<div class="github">
-		<iframe src="https://ghbtns.com/github-btn.html?user=jmlemetayer&repo=abba&type=star&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="96" height="30"></iframe>
-		<iframe src="https://ghbtns.com/github-btn.html?user=jmlemetayer&repo=abba&type=fork&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="76" height="30"></iframe>
+	<h2>Mamma mia, let's be beautiful</h2>
+</header>
+<aside id="fork-me">
+	<a class="btn btn-primary btn-lg" href="https://github.com/jmlemetayer/abba">
+		Fork me on
+		<span class="icon icon-github-text" aria-hidden="true"></span>
+		<span class="sr-only">GitHub</span>
+	</a>
+</aside>
+<section id="awesome-autoindex">
+	<div class="left">
+		<div class="caption">
+			<h1>Awesome autoindex</h1>
+			<p>No more ugly autoindex! ABBA allows you to quickly and easily customize your <a href="https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html">Apache autoindex</a>.</p>
+			<p>With a fully responsive design, multiple templates and customized error pages, ABBA is here to make the web look awesome.</p>
+		</div>
+		<div class="media owl-carousel owl-theme">
+			<div class="responsive" style="background-image:url(/examples/autoindex.png)">
+				<h1>Before <small>Basic Apache autoindex</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/default.png)">
+				<h1>After <small>Awesome autoindex</small></h1>
+			</div>
+		</div>
 	</div>
 </section>
+<section id="easy-installing">
+	<div class="center">
+		<div class="caption">
+			<h1>Easy installing</h1>
+			<p>Just go into your <code><a href="https://httpd.apache.org/docs/2.4/mod/core.html#documentroot">DocumentRoot</a></code> directory and run this shell one-liner:</p>
+			<form id="one-liner">
+				<div class="input-group">
+					<input class="form-control" type="text" value="T=$(mktemp) && curl -sL git.io/abba -o $T && sh $T" readonly>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><span class="icon icon-clipboard" aria-hidden="true"></span><span class="sr-only">Copy</span></button>
+					</span>
+				</div>
+			</form>
+			<p>You will be prompted to select the template you want. And that's it! Refresh your autoindex page and everything should be working.</p>
+			<p>If you do not want to be prompted you can directly add the template name at the end of the line.</p>
+		</div>
+	</div>
+</section>
+<section id="fully-responsive">
+	<div class="right">
+		<div class="caption">
+			<h1>Fully responsive</h1>
+			<p>By using <a href="https://getbootstrap.com">Bootstrap</a>, ABBA ensures you to have a fully responsive design.</p>
+			<p>So you can easily check out your files from all your devices.</p>
+		</div>
+		<div class="media">
+			<img class="responsive" style="background-image:url(/examples/responsive.png)">
+		</div>
+	</div>
+</section>
+<section id="multiple-templates">
+	<div class="left">
+		<div class="caption">
+			<h1>Multiple templates</h1>
+			<p>By using <a href="https://bootswatch.com">Bootswatch</a>, several templates are available.</p>
+			<p>They can be easily switched by reinstalling ABBA.</p>
+		</div>
+		<div class="media owl-carousel owl-theme">
+			<div class="responsive" style="background-image:url(/examples/default.png)">
+				<h1>Default <small>Basic Bootstrap</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/cerulean.png)">
+				<h1>Cerulean <small>A calm blue sky</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/cosmo.png)">
+				<h1>Cosmo <small>An ode to Metro</small></h1>
+			</div>
+			<div class="responsive dark" style="background-image:url(/examples/cyborg.png)">
+				<h1>Cyborg <small>Jet black and electric blue</small></h1>
+			</div>
+			<div class="responsive dark" style="background-image:url(/examples/darkly.png)">
+				<h1>Darkly <small>Flatly in night mode</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/flatly.png)">
+				<h1>Flatly <small>Flat and modern</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/journal.png)">
+				<h1>Journal <small>Crisp like a new sheet of paper</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/lumen.png)">
+				<h1>Lumen <small>Light and shadow</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/paper.png)">
+				<h1>Paper <small>Material is the metaphor</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/readable.png)">
+				<h1>Readable <small>Optimized for legibility</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/sandstone.png)">
+				<h1>Sandstone <small>A touch of warmth</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/simplex.png)">
+				<h1>Simplex <small>Mini and minimalist</small></h1>
+			</div>
+			<div class="responsive dark" style="background-image:url(/examples/slate.png)">
+				<h1>Slate <small>Shades of gunmetal gray</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/spacelab.png)">
+				<h1>Spacelab <small>Silvery and sleek</small></h1>
+			</div>
+			<div class="responsive dark" style="background-image:url(/examples/superhero.png)">
+				<h1>Superhero <small>The brave and the blue</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/united.png)">
+				<h1>United <small>Ubuntu orange and unique font</small></h1>
+			</div>
+			<div class="responsive" style="background-image:url(/examples/yeti.png)">
+				<h1>Yeti <small>A friendly foundation</small></h1>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="error-pages">
+	<div class="right">
+		<div class="caption">
+			<h1>Error pages</h1>
+			<p>Last but not least, ABBA also provides error pages suited to the chosen template.</p>
+			<p>Now your autoindex really looks awesome!</p>
+		</div>
+		<div class="media owl-carousel owl-theme">
+			<img class="responsive" style="background-image:url(/examples/error_500.png)">
+			<img class="responsive" style="background-image:url(/examples/error_404.png)">
+			<img class="responsive" style="background-image:url(/examples/error_403.png)">
+			<img class="responsive" style="background-image:url(/examples/error_401.png)">
+		</div>
+	</div>
+</section>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="left">
+				Made with <span class="icon icon-heart" aria-hidden="true"></span><span class="sr-only">love</span> and open source software
+			</div>
+			<div class="right">
+				<a href="https://github.com/jmlemetayer">
+					<span class="icon icon-github" aria-hidden="true"></span>
+					<span class="sr-only">GitHub</span>
+				</a>
+				<a href="https://www.linkedin.com/in/jmlemetayer">
+					<span class="icon icon-linkedin" aria-hidden="true"></span>
+					<span class="sr-only">LinkedIn</span>
+				</a>
+				<a href="https://stackoverflow.com/users/2893600/jml">
+					<span class="icon icon-stackoverflow" aria-hidden="true"></span>
+					<span class="sr-only">Stack Overflow</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</footer>

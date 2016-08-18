@@ -1,33 +1,251 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:500,700,900");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,500,900");
 
-.jumbotron {
-	padding: 50px 0 0;
+@font-face {
+	font-family: 'icon';
+	src: url("#{$icon-font-path}index.eot?sqzzoy");
+	src: url("#{$icon-font-path}index.eot?sqzzoy#iefix") format("embedded-opentype"),
+	url("#{$icon-font-path}index.ttf?sqzzoy") format("truetype"),
+	url("#{$icon-font-path}index.woff?sqzzoy") format("woff"),
+	url("#{$icon-font-path}index.svg?sqzzoy#index") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon {
+	font-family: 'icon' !important;
+	display: inline-block;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clipboard:before		{ content: "\f035"; }
+.icon-heart:before		{ content: "\e9da"; }
+.icon-github-text:before	{ content: "\f092"; }
+.icon-github:before		{ content: "\f00a"; }
+.icon-linkedin:before		{ content: "\eaca"; }
+.icon-stackoverflow:before	{ content: "\ead0"; }
+
+header {
+	padding-top: 50px;
+	padding-bottom: 20px;
 	text-align: center;
-	background-color: $brand-primary;
 
-	.title {
+	h1 {
 		font-size: 64px;
 		font-weight: 900;
 	}
 
-	.subtitle {
-		color: $brand-danger;
-		font-size: 27px;
+	h2, h3 {
+		font-weight: 500;
+	}
+}
 
-		a {
-			color: $brand-info;
-			text-decoration: none;
+section {
+	@extend .container;
 
-			&:hover,
-			&:focus {
-				color: $brand-info;
+	@media (max-width: $screen-xs-max) {
+		margin-top: 40px;
+	}
+
+	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		margin-top: 70px;
+	}
+
+	@media (min-width: $screen-md-min) {
+		margin-top: 100px;
+	}
+
+	h1 {
+		text-align: left;
+
+		@media (min-width: $screen-sm-min) {
+			text-align: center;
+		}
+	}
+
+	.caption {
+		padding-bottom: 10px;
+		text-align: justify;
+	}
+
+	> .left, > .right {
+		.caption {
+			@media (min-width: $screen-sm-min) {
+				padding-top: 30px;
 			}
 		}
 	}
 
-	.github {
-		margin: 50px 0 0;
-		background: rgba(0, 0, 0, 0.1);
-		padding: 20px 0 10px;
+	> .left, > .right, > .center {
+		@extend .row;
+	}
+
+	> .left {
+		> .caption {
+			@extend .col-md-4;
+
+			@extend .col-sm-5;
+
+			@media (min-width: $screen-sm-min) {
+				> h1 {
+					text-align: left;
+				}
+			}
+		}
+
+		> .media {
+			@extend .col-md-6;
+
+			@extend .col-md-offset-2;
+
+			@extend .col-sm-7;
+		}
+	}
+
+	> .right {
+		> .caption {
+			@extend .col-md-4;
+
+			@extend .col-md-offset-1;
+
+			@extend .col-sm-push-7;
+
+			@extend .col-sm-5;
+
+			@media (min-width: $screen-sm-min) {
+				> h1 {
+					text-align: right;
+				}
+			}
+		}
+
+		> .media {
+			@extend .col-md-6;
+
+			@extend .col-sm-pull-5;
+
+			@extend .col-sm-7;
+		}
+	}
+
+	> .center .caption {
+		@extend .col-md-8;
+
+		@extend .col-md-offset-2;
+
+		@extend .col-sm-10;
+
+		@extend .col-sm-offset-1;
+	}
+
+	.media {
+		.responsive {
+			position: relative;
+			width: 100%;
+			height: 0;
+			padding-bottom: 60%;
+			background-size: cover;
+			border: 1px solid $gray-lighter;
+			border-radius: 5px;
+
+			> h1 {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				text-align: center;
+				font-size: $font-size-h3;
+			}
+
+			&.dark > h1 {
+				color: $gray-lighter;
+			}
+		}
+	}
+
+	#one-liner {
+		margin: 30px 0;
+
+		input {
+			font-family: $font-family-monospace;
+			text-align: center;
+		}
+	}
+
+	&#awesome-autoindex {
+		margin-top: 50px;
+	}
+}
+
+#fork-me {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-top: 1px solid $gray-lighter;
+	border-bottom: 1px solid $gray-lighter;
+	text-align: center;
+}
+
+footer {
+	margin-top: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px solid $gray-lighter;
+
+	.left, .right {
+		padding: 20px;
+
+		@extend .col-md-6;
+	}
+
+	.left {
+		@media (max-width: $screen-xs-max) {
+			text-align: center;
+		}
+
+		@media (min-width: $screen-sm-min) {
+			text-align: left;
+		}
+
+		.icon {
+			color: $brand-primary;
+		}
+	}
+
+	.right {
+		@media (max-width: $screen-xs-max) {
+			text-align: center;
+		}
+
+		@media (min-width: $screen-sm-min) {
+			text-align: right;
+		}
+
+		.icon {
+			font-size: (4em / 3);
+			line-height: (3em / 4);
+			vertical-align: -15%;
+			width: (18em / 14);
+			text-align: center;
+		}
+	}
+}
+
+header, footer {
+	a {
+		text-decoration: none;
+
+		&:active,
+		&:focus,
+		&:hover,
+		&:link,
+		&:visited {
+			text-decoration: none;
+			color: $link-color;
+		}
 	}
 }

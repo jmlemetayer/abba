@@ -1,6 +1,19 @@
-$brand-primary: #fcdf15;
-$brand-info: #0b99bc;
-$brand-danger: #d40e52;
-$font-family-sans-serif: 'Lato', sans-serif;
-$heading-color: #c3c3c3;
-$icon-font-path: "../fonts/";
+$font-family-sans-serif:	'Lato', sans-serif;
+$headings-font-weight:		400;
+$icon-font-path:		'../fonts/';
+$line-height-base:		1.42858;
+
+/* Import Bootstrap variables */
+@import 'bootstrap/variables';
+
+/* Do not use large format */
+$container-lg:			$container-md;
+
+/* Set h1 font size as h2 */
+$font-size-h1:			$font-size-h2;
+
+/* Owl carousel */
+$nav-font-size: 		$font-size-h4;
+$dot-width:			9px;
+$dot-height:			9px;
+$dot-margin: 			5px 4px;
