@@ -1,39 +1,39 @@
 ABBAURL=jmlemetayer.github.io/abba
-THEMES=default:cerulean:cosmo:cyborg:darkly:flatly:journal:lumen:paper:readable:sandstone:simplex:slate:spacelab:superhero:united:yeti
+TEMPLATES=default:cerulean:cosmo:cyborg:darkly:flatly:journal:lumen:paper:readable:sandstone:simplex:slate:spacelab:superhero:united:yeti
 
 # Self remove on exit
 trap "rm $0" EXIT
 
-# Check if theme name is valid
-# $1: Theme name
-# return: Valid theme name or empty
-check_theme() {
-	local THEME=${1}
+# Check if template name is valid
+# $1: Template name
+# return: Valid template name or empty
+check_template() {
+	local TEMPLATE=${1}
 	# If empty, set to default
-	[ -z "${THEME}" ] && THEME=default
-	# If a number, set to the theme associated name
-	[ ${THEME} -eq ${THEME} ] 2>/dev/null && THEME=$(echo ${THEMES} | awk -F: '{ print $'${THEME}' }')
-	# If a string, check if it's a theme in the list
-	echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) if ($i == "'${THEME}'") print $i }'
+	[ -z "${TEMPLATE}" ] && TEMPLATE=default
+	# If a number, set to the template associated name
+	[ ${TEMPLATE} -eq ${TEMPLATE} ] 2>/dev/null && TEMPLATE=$(echo ${TEMPLATES} | awk -F: '{ print $'${TEMPLATE}' }')
+	# If a string, check if it's a template in the list
+	echo ${TEMPLATES} | awk -F: '{ for (i = 1; i <= NF; i++) if ($i == "'${TEMPLATE}'") print $i }'
 }
 
 # Manage arguments
-[ -n "${1}" ] && THEME=$(check_theme ${1})
+[ -n "${1}" ] && TEMPLATE=$(check_template ${1})
 
-# If no valid theme in arguments
-if [ -z "${THEME}" ]
+# If no valid template in arguments
+if [ -z "${TEMPLATE}" ]
 then
-	# Print the theme list
-	echo ${THEMES} | awk -F: '{ for (i = 1; i <= NF; i++) print i ") " $i }'
+	# Print the template list
+	echo ${TEMPLATES} | awk -F: '{ for (i = 1; i <= NF; i++) print i ") " $i }'
 
 	while true
 	do
-		# Ask wanted theme. Could be empty, a number or a string
-		read -p "What theme do you want to use? [default] " THEME
-		# Check theme name
-		THEME=$(check_theme ${THEME})
+		# Ask wanted template. Could be empty, a number or a string
+		read -p "What template do you want to use? [default] " TEMPLATE
+		# Check template name
+		TEMPLATE=$(check_template ${TEMPLATE})
 		# If not empty, go to next step
-		[ -n "${THEME}" ] && break
+		[ -n "${TEMPLATE}" ] && break
 	done
 fi
 
@@ -69,7 +69,7 @@ ${SUDO} curl -sL ${ABBAURL}/dist/error_404.shtml -o .abba/error_404.shtml && \
 ${SUDO} curl -sL ${ABBAURL}/dist/error_500.shtml -o .abba/error_500.shtml && \
 ${SUDO} curl -sL ${ABBAURL}/dist/js/iefix.js -o .abba/js/iefix.js && \
 ${SUDO} curl -sL ${ABBAURL}/dist/js/script.js -o .abba/js/script.js && \
-${SUDO} curl -sL ${ABBAURL}/dist/css/${THEME}.css -o .abba/css/style.css && \
+${SUDO} curl -sL ${ABBAURL}/dist/css/${TEMPLATE}.css -o .abba/css/style.css && \
 ${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.eot -o .abba/fonts/icon.eot && \
 ${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.ttf -o .abba/fonts/icon.ttf && \
 ${SUDO} curl -sL ${ABBAURL}/dist/fonts/icon.woff -o .abba/fonts/icon.woff && \
