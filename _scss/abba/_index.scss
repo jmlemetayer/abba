@@ -154,15 +154,29 @@ section {
 			border: 1px solid $gray-lighter;
 			border-radius: 5px;
 
-			> h1 {
+			> a, > h1 {
 				position: absolute;
 				bottom: 0;
 				width: 100%;
+			}
+
+			> a {
+				&:active,
+				&:focus,
+				&:hover,
+				&:link,
+				&:visited {
+					text-decoration: none;
+				}
+			}
+
+			h1 {
+				color: $text-color;
 				text-align: center;
 				font-size: $font-size-h3;
 			}
 
-			&.dark > h1 {
+			&.dark h1 {
 				color: $gray-lighter;
 			}
 		}
