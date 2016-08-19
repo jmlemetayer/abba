@@ -1,6 +1,4 @@
-sass:
-    sass_dir: _scss
-    style: compressed
+repository: jmlemetayer/abba
 defaults:
     -
         scope:
@@ -11,5 +9,9 @@ defaults:
             css: default
             js: script
             title: abba.jmldev.net
+sass:
+    sass_dir: _scss
+    style: compressed
 gems:
+    - jekyll-github-metadata
     - jekyll-sitemap

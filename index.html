@@ -15,7 +15,7 @@ title: ABBA &middot; Apache Bootstrap &amp; Bootswatch Autoindex
 	<h2>Mamma mia, let's be beautiful</h2>
 </header>
 <aside id="fork-me">
-	<a class="btn btn-primary btn-lg" href="https://github.com/jmlemetayer/abba">
+	<a class="btn btn-primary btn-lg" href="{{ site.github.repository_url }}">
 		Fork me on
 		<span class="icon icon-github-text" aria-hidden="true"></span>
 		<span class="sr-only">GitHub</span>
@@ -45,7 +45,7 @@ title: ABBA &middot; Apache Bootstrap &amp; Bootswatch Autoindex
 			<p>Just go into your <code><a href="https://httpd.apache.org/docs/2.4/mod/core.html#documentroot">DocumentRoot</a></code> directory and run this shell one-liner:</p>
 			<form id="one-liner">
 				<div class="input-group">
-					<input class="form-control" type="text" value="T=$(mktemp) && curl -sL git.io/abba -o $T && sh $T" readonly>
+					<input class="form-control" type="text" value="T=$(mktemp) && curl -sL {{ site.github.url }}/install -o $T && sh $T" readonly>
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="button"><span class="icon icon-clipboard" aria-hidden="true"></span><span class="sr-only">Copy</span></button>
 					</span>
@@ -186,7 +186,7 @@ title: ABBA &middot; Apache Bootstrap &amp; Bootswatch Autoindex
 				Made with <span class="icon icon-heart" aria-hidden="true"></span><span class="sr-only">love</span> and open source software
 			</div>
 			<div class="right">
-				<a href="https://github.com/jmlemetayer">
+				<a href="{{ site.github.owner_url }}">
 					<span class="icon icon-github" aria-hidden="true"></span>
 					<span class="sr-only">GitHub</span>
 				</a>
