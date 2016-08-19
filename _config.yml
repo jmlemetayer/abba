@@ -11,3 +11,5 @@ defaults:
             css: default
             js: script
             title: abba.jmldev.net
+gems:
+    - jekyll-sitemap
