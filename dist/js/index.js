@@ -16,7 +16,7 @@ layout:
 {% comment %}{% include js/bootstrap/affix.js %}{% endcomment %}
 {% include js/owl/owl.carousel.js %}
 {% comment %}{% include js/owl/owl.autorefresh.js %}{% endcomment %}
-{% comment %}{% include js/owl/owl.lazyload.js %}{% endcomment %}
+{% include js/owl/owl.lazyload.js %}
 {% comment %}{% include js/owl/owl.autoheight.js %}{% endcomment %}
 {% comment %}{% include js/owl/owl.video.js %}{% endcomment %}
 {% include js/owl/owl.animate.js %}
@@ -27,6 +27,7 @@ layout:
 $(document).ready(function() {
 	/* Initialize carousels */
 	$('#awesome-autoindex .owl-carousel').owlCarousel({
+		lazyLoad: true,
 		nav: true,
 		navText: ['Before', 'After'],
 		dots: false,
@@ -34,11 +35,13 @@ $(document).ready(function() {
 	});
 
 	$('#multiple-templates .owl-carousel').owlCarousel({
+		lazyLoad: true,
 		loop: true,
 		items: 1
 	});
 
 	$('#error-pages .owl-carousel').owlCarousel({
+		lazyLoad: true,
 		loop: true,
 		items: 1
 	});
