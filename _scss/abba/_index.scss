@@ -31,6 +31,22 @@
 .icon-linkedin:before		{ content: "\eaca"; }
 .icon-stackoverflow:before	{ content: "\ead0"; }
 
+@mixin link($color) {
+	a {
+		text-decoration: none;
+		color: $color;
+
+		&:active,
+		&:focus,
+		&:hover,
+		&:link,
+		&:visited {
+			color: $color;
+			text-decoration: none;
+		}
+	}
+}
+
 header {
 	padding-top: 50px;
 	padding-bottom: 20px;
@@ -145,40 +161,40 @@ section {
 	}
 
 	.media {
-		.responsive {
-			position: relative;
+		img {
+			width: 100%;
+		}
+
+		.navigator {
 			width: 100%;
 			height: 0;
-			padding-bottom: 60%;
-			background-size: cover;
-			border: 1px solid $gray-lighter;
-			border-radius: 5px;
+			padding-bottom: 53%;
 
-			> a, > h1 {
-				position: absolute;
-				bottom: 0;
+			&:before {
+				display: block;
 				width: 100%;
+				height: 0;
+				padding-bottom: 5.3%;
+				background-image: url(/examples/navigator.png);
+				background-size: cover;
+				content: '';
 			}
 
-			> a {
-				&:active,
-				&:focus,
-				&:hover,
-				&:link,
-				&:visited {
-					text-decoration: none;
-				}
+			img {
+				border-right: 1px solid $gray-lighter;
+				border-bottom: 1px solid $gray-lighter;
+				border-left: 1px solid $gray-lighter;
+				border-radius: 0 0 4px 4px;
 			}
+		}
 
+		.slide {
 			h1 {
-				color: $text-color;
 				text-align: center;
 				font-size: $font-size-h3;
 			}
 
-			&.dark h1 {
-				color: $gray-lighter;
-			}
+			@include link($text-color);
 		}
 	}
 
@@ -250,16 +266,5 @@ footer {
 }
 
 header, footer {
-	a {
-		text-decoration: none;
-
-		&:active,
-		&:focus,
-		&:hover,
-		&:link,
-		&:visited {
-			text-decoration: none;
-			color: $link-color;
-		}
-	}
+	@include link($link-color);
 }
