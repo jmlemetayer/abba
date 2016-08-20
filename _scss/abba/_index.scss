@@ -62,19 +62,35 @@ header {
 	}
 }
 
+aside {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-top: 1px solid $gray-lighter;
+	border-bottom: 1px solid $gray-lighter;
+	text-align: center;
+}
+
 section {
 	@extend .container;
 
+	margin-top: 50px;
+
 	@media (max-width: $screen-xs-max) {
-		margin-top: 40px;
+		+ section {
+			margin-top: 40px;
+		}
 	}
 
 	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-		margin-top: 70px;
+		+ section {
+			margin-top: 70px;
+		}
 	}
 
 	@media (min-width: $screen-md-min) {
-		margin-top: 100px;
+		+ section {
+			margin-top: 100px;
+		}
 	}
 
 	h1 {
@@ -198,7 +214,7 @@ section {
 		}
 	}
 
-	#one-liner {
+	form {
 		margin: 30px 0;
 
 		input {
@@ -206,18 +222,6 @@ section {
 			text-align: center;
 		}
 	}
-
-	&#awesome-autoindex {
-		margin-top: 50px;
-	}
-}
-
-#fork-me {
-	padding-top: 30px;
-	padding-bottom: 30px;
-	border-top: 1px solid $gray-lighter;
-	border-bottom: 1px solid $gray-lighter;
-	text-align: center;
 }
 
 footer {
