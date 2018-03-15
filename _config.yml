@@ -8,7 +8,7 @@ defaults:
             assets: /dist
             css: default
             js: script
-            title: abba.jmldev.net
+            title: abba.jml.bzh
 sass:
     sass_dir: _scss
     style: compressed

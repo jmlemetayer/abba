@@ -74,12 +74,12 @@ ABBA is released under the [GNU General Public License v3][gplv30].
 * [GitHub Octicons][octicons] _([MIT][mit], [SIL OFL 1.1][ofl11])_
 * [Font Awesome][fontawesome] _([MIT][mit], [SIL OFL 1.1][ofl11])_
 
-[abba]: https://abba.jmldev.net
-[awesome-autoindex]: https://abba.jmldev.net#awesome-autoindex
-[easy-installing]: https://abba.jmldev.net#easy-installing
-[fully-responsive]: https://abba.jmldev.net#fully-responsive
-[multiple-templates]: https://abba.jmldev.net#multiple-templates
-[error-pages]: https://abba.jmldev.net#error-pages
+[abba]: https://abba.jml.bzh
+[awesome-autoindex]: https://abba.jml.bzh#awesome-autoindex
+[easy-installing]: https://abba.jml.bzh#easy-installing
+[fully-responsive]: https://abba.jml.bzh#fully-responsive
+[multiple-templates]: https://abba.jml.bzh#multiple-templates
+[error-pages]: https://abba.jml.bzh#error-pages
 [iglvzx]: https://github.com/iglvzx/IGalvez.Autoindex
 [jekyll]: https://jekyllrb.com
 [boostrap]: https://getbootstrap.com
