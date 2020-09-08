@@ -11,4 +11,7 @@ BASE_URL="http://abba-builder:4000"
 BASE_URL="{{ jekyll.environment }}"
 {% endif %}
 
+# Self remove on exit
+trap "rm ${0}" EXIT
+
 echo "Done"
