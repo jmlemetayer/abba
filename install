@@ -14,4 +14,15 @@ BASE_URL="{{ jekyll.environment }}"
 # Self remove on exit
 trap "rm ${0}" EXIT
 
+# Create the .abba directory
+mkdir -p .abba
+
+# Generate the uninstall script
+cat << EOF > .abba/uninstall
+#!/bin/sh
+rm -rf ${PWD}/.abba
+EOF
+
+chmod +x .abba/uninstall
+
 echo "Done"
