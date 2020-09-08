@@ -1,3 +1,14 @@
 ---
 ---
+{% if jekyll.environment == "production" %}
+# GitHub production URL
+BASE_URL="https://jmlemetayer.github.io/abba"
+{% elsif jekyll.environment == "development" %}
+# Default development URL
+BASE_URL="http://abba-builder:4000"
+{% else %}
+# Custom development URL
+BASE_URL="{{ jekyll.environment }}"
+{% endif %}
+
 echo "Done"
