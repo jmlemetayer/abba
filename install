@@ -11,6 +11,41 @@ BASE_URL="http://abba-builder:4000"
 BASE_URL="{{ jekyll.environment }}"
 {% endif %}
 
+{% assign css_pages = site.pages | where: "dir", "/abba/css/" %}
+{% assign css_themes = "" | split: "," %}
+{% for page in css_pages %}
+{% assign theme = page.name | remove: ".scss" %}
+{% assign css_themes = css_themes | push: theme %}
+{% endfor %}
+# Available themes
+THEMES="{{ css_themes | join: ":" }}"
+
+# Print all available themes
+print_themes()
+{
+	echo ${THEMES} | awk -F: '{
+		for (i = 1; i <= NF; i++) {
+			printf("%2s) %s\n", i, $i);
+		}
+	}'
+}
+
+# Check if a theme name is valid
+# $1: A theme name
+# return: A valid theme name or the empty string
+check_theme()
+{
+	echo ${THEMES} | awk -F: -v theme=${1:-default} '{
+		ltheme = tolower(theme);
+		for (i = 1; i <= NF; i++) {
+			if (ltheme == i || ltheme == $i) {
+				printf("%s", $i);
+				exit;
+			}
+		}
+	}'
+}
+
 # On exit handler
 on_exit()
 {
@@ -35,8 +70,22 @@ trap "on_exit" EXIT
 # Exit on error
 set -e
 
-# Create the .abba directory
+# Create the .abba directory tree first to handle permission denied errors asap
 mkdir -p .abba
+mkdir -p .abba/css
+
+# Ask the user to choose a theme if not given in argument
+[ -n "${1}" ] && THEME=$(check_theme ${1})
+
+while [ -z "${THEME}" ]
+do
+	print_themes
+	read -p "What theme do you want to use? [default] " THEME
+	THEME=$(check_theme ${THEME})
+done
+
+# Download the needed files
+curl -sL ${BASE_URL}/abba/css/${THEME}.css -o .abba/css/style.css
 
 # Generate the uninstall script
 cat << EOF > .abba/uninstall
