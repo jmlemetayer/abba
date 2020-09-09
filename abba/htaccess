@@ -1,0 +1,39 @@
+<IfModule autoindex_module>
+	### General configuration
+	# Ensure mod_autoindex is used
+	Options +Indexes
+	# Ensure mod_dir does not take precedence over mod_autoindex
+	<IfModule dir_module>
+		DirectoryIndex disabled
+	</IfModule>
+	# Use UTF-8 every time
+	IndexOptions Charset=UTF-8
+	# Use ABBA header and footer
+	HeaderName /.abba/html/header.html
+	ReadmeName /.abba/html/footer.html
+	# Do not add extra preamble
+	IndexOptions SuppressHTMLPreamble
+	# Ignore ABBA assets
+	IndexIgnore .htaccess
+	IndexIgnore .abba
+
+	### Table configuration
+	# Display table headers
+	IndexOptions FancyIndexing
+	# Use the html <table>
+	IndexOptions HTMLTable
+	# Remove the icon column
+	IndexOptions SuppressIcon
+	# Remove the description column
+	IndexOptions SuppressDescription
+	# Remove the <hr>
+	IndexOptions SuppressRules
+	# Do not cut the names
+	IndexOptions NameWidth=*
+
+	### Sorting options
+	IndexOrderDefault Ascending Name
+	IndexOptions IgnoreCase
+	IndexOptions FoldersFirst
+	IndexOptions VersionSort
+</IfModule>
