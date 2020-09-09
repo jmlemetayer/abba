@@ -11,8 +11,29 @@ BASE_URL="http://abba-builder:4000"
 BASE_URL="{{ jekyll.environment }}"
 {% endif %}
 
-# Self remove on exit
-trap "rm ${0}" EXIT
+# On exit handler
+on_exit()
+{
+	local status=$?
+
+	# Print a status line
+	if [ ${status} -eq 0 ]
+	then
+		echo "ABBA has been successfully installed"
+	else
+		echo >&2 "Failed to install ABBA"
+	fi
+
+	# Self remove
+	rm ${0}
+
+	exit ${status}
+}
+
+trap "on_exit" EXIT
+
+# Exit on error
+set -e
 
 # Create the .abba directory
 mkdir -p .abba
@@ -24,5 +45,3 @@ rm -rf ${PWD}/.abba
 EOF
 
 chmod +x .abba/uninstall
-
-echo "Done"
