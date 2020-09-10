@@ -85,11 +85,13 @@ do
 done
 
 # Download the needed files
+curl -sL ${BASE_URL}/abba/htaccess -o .htaccess
 curl -sL ${BASE_URL}/abba/css/${THEME}.css -o .abba/css/style.css
 
 # Generate the uninstall script
 cat << EOF > .abba/uninstall
 #!/bin/sh
+rm -rf ${PWD}/.htaccess
 rm -rf ${PWD}/.abba
 EOF
 
