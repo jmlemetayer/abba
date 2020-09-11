@@ -1,0 +1,8 @@
+defaults:
+  - scope:
+      path: abba/html
+    values:
+      layout: compress
+
+compress_html:
+    clippings: all
