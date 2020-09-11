@@ -22,14 +22,25 @@
 	IndexOptions FancyIndexing
 	# Use the html <table>
 	IndexOptions HTMLTable
-	# Remove the icon column
-	IndexOptions SuppressIcon
 	# Remove the description column
 	IndexOptions SuppressDescription
 	# Remove the <hr>
 	IndexOptions SuppressRules
 	# Do not cut the names
 	IndexOptions NameWidth=*
+
+	### Icon configuration
+	# The icon image is not needed, only the alt text is used, so all icons
+	# src fields must be valid and not trigger a network request:
+	# https://stackoverflow.com/a/53365710/2893600
+	AddIcon data:, *
+	# Configure alt text by types
+	AddAlt parent ..
+	AddAlt directory ^^DIRECTORY^^
+	AddAltByType text text/*
+	AddAltByType image image/*
+	AddAltByType audio audio/*
+	AddAltByType video video/*
 
 	### Sorting options
 	IndexOrderDefault Ascending Name
