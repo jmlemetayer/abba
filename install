@@ -74,6 +74,7 @@ set -e
 mkdir -p .abba
 mkdir -p .abba/css
 mkdir -p .abba/html
+mkdir -p .abba/js
 
 # Ask the user to choose a theme if not given in argument
 [ -n "${1}" ] && THEME=$(check_theme ${1})
@@ -90,6 +91,7 @@ curl -sL ${BASE_URL}/abba/htaccess -o .htaccess
 curl -sL ${BASE_URL}/abba/css/${THEME}.css -o .abba/css/style.css
 curl -sL ${BASE_URL}/abba/html/header.html -o .abba/html/header.html
 curl -sL ${BASE_URL}/abba/html/footer.html -o .abba/html/footer.html
+curl -sL ${BASE_URL}/abba/js/script.js -o .abba/js/script.js
 
 # Generate the uninstall script
 cat << EOF > .abba/uninstall
