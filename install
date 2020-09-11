@@ -73,6 +73,7 @@ set -e
 # Create the .abba directory tree first to handle permission denied errors asap
 mkdir -p .abba
 mkdir -p .abba/css
+mkdir -p .abba/html
 
 # Ask the user to choose a theme if not given in argument
 [ -n "${1}" ] && THEME=$(check_theme ${1})
@@ -87,6 +88,8 @@ done
 # Download the needed files
 curl -sL ${BASE_URL}/abba/htaccess -o .htaccess
 curl -sL ${BASE_URL}/abba/css/${THEME}.css -o .abba/css/style.css
+curl -sL ${BASE_URL}/abba/html/header.html -o .abba/html/header.html
+curl -sL ${BASE_URL}/abba/html/footer.html -o .abba/html/footer.html
 
 # Generate the uninstall script
 cat << EOF > .abba/uninstall
