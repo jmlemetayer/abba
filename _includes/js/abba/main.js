@@ -39,6 +39,7 @@ const icon_classe_by_type = {
 // Parse each row
 $("tbody > tr").each(function(index) {
 	var icon = $("th", this).first();
+	var date = $("td", this).eq(-2);
 	var size = $("td", this).last();
 
 	// Read the type from the <img> alt text
@@ -49,6 +50,19 @@ $("tbody > tr").each(function(index) {
 		icon.html("<i class='" + icon_classe_by_type[type] + "'/>");
 	} else {
 		icon.html("<i class='" + icon_classe_by_type["default"] + "'/>");
+	}
+
+	// Beautify date
+	var m = moment(date.html(), "YYYY-MM-DD HH:mm");
+
+	if (moment().diff(m, "days", true) < 1) {
+		date.html(m.fromNow());
+
+	} else if (moment().diff(m, "weeks", true) < 1) {
+		date.html(m.format("dddd LT"));
+
+	} else {
+		date.html(m.format("LLL"));
 	}
 
 	// Remove the parent row
