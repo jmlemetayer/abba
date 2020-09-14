@@ -3,6 +3,11 @@ defaults:
       path: abba/html
     values:
       layout: compress
+  - scope:
+      path: previews
+    values:
+      layout: preview
+      asset_dir: ../../abba
 
 compress_html:
     clippings: all
