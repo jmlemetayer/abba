@@ -3,4 +3,9 @@
 @import "bootswatch/lumen/variables";
 @import "bootstrap/bootstrap-abba";
 @import "bootswatch/lumen/bootswatch";
+
+// Use light navbar
+$navbar-abba-class: ".navbar-light";
+$navbar-abba-bg-class: ".bg-light";
+
 @import "abba/main";

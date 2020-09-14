@@ -3,4 +3,9 @@
 @import "bootswatch/solar/variables";
 @import "bootstrap/bootstrap-abba";
 @import "bootswatch/solar/bootswatch";
+
+// Use dark navbar
+$navbar-abba-class: ".navbar-dark";
+$navbar-abba-bg-class: ".bg-dark";
+
 @import "abba/main";

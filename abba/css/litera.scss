@@ -3,4 +3,9 @@
 @import "bootswatch/litera/variables";
 @import "bootstrap/bootstrap-abba";
 @import "bootswatch/litera/bootswatch";
+
+// Use light navbar
+$navbar-abba-class: ".navbar-light";
+$navbar-abba-bg-class: ".bg-light";
+
 @import "abba/main";

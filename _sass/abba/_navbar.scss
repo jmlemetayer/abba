@@ -1,0 +1,8 @@
+// Allow the navbar to be customized by theme
+$navbar-abba-class: ".navbar-dark" !default;
+$navbar-abba-bg-class: ".bg-primary" !default;
+
+.navbar-abba {
+	@extend #{$navbar-abba-class};
+	@extend #{$navbar-abba-bg-class};
+}
