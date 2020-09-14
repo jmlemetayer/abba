@@ -90,8 +90,8 @@ done
 # Download the needed files
 curl -sL ${BASE_URL}/abba/htaccess -o .htaccess
 curl -sL ${BASE_URL}/abba/css/${THEME}.css -o .abba/css/style.css
-curl -sL ${BASE_URL}/abba/html/header.html -o .abba/html/header.html
-curl -sL ${BASE_URL}/abba/html/footer.html -o .abba/html/footer.html
+curl -sL ${BASE_URL}/abba/html/header.shtml -o .abba/html/header.shtml
+curl -sL ${BASE_URL}/abba/html/footer.shtml -o .abba/html/footer.shtml
 curl -sL ${BASE_URL}/abba/js/script.js -o .abba/js/script.js
 for FONT in fa-regular-400 fa-solid-900
 do

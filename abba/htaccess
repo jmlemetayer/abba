@@ -8,9 +8,17 @@
 	</IfModule>
 	# Use UTF-8 every time
 	IndexOptions Charset=UTF-8
+	# Allow ABBA to use mod_include
+	<IfModule include_module>
+		Options +Includes
+		<IfModule mime_module>
+			AddType text/html .shtml
+			AddOutputFilter INCLUDES .shtml
+		</IfModule>
+	</IfModule>
 	# Use ABBA header and footer
-	HeaderName /.abba/html/header.html
-	ReadmeName /.abba/html/footer.html
+	HeaderName /.abba/html/header.shtml
+	ReadmeName /.abba/html/footer.shtml
 	# Do not add extra preamble
 	IndexOptions SuppressHTMLPreamble
 	# Ignore ABBA assets
