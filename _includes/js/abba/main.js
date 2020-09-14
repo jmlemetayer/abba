@@ -77,5 +77,26 @@ $("tbody > tr").each(function(index) {
 	}
 });
 
+// Get the path segments and remove empty fields
+const path_segments = window.location.pathname.split("/").filter(Boolean);
+
+// Create a name / url object for each path segments
+var path_url = "/";
+var path_urls = [{name: "home", url: path_url}];
+path_segments.forEach(function(segment) {
+	path_url += segment + "/";
+	path_urls.push({name: decodeURIComponent(segment), url: path_url});
+});
+
+// Create the breadcrumb elements for each previous objects
+path_urls.forEach(function(url) {
+	var a = $("<a/>").attr("href", url.url).html(url.name);
+	var li = $("<li/>").addClass("breadcrumb-item").append(a);
+	$(".breadcrumb").append(li);
+});
+
+// Set the last breadcrumb item as active
+$(".breadcrumb li").last().addClass("active").children("a").contents().unwrap();
+
 // Show main
 $("main").show();
