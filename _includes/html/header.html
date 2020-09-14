@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="{{ page.asset_dir | default: "/.abba" }}/css/{{ page.css_filename | default: "style.css" }}">
-	<title>ABBA</title>
+	<title>{{ page.title | default: "<!--#echo var=SERVER_NAME -->" | capitalize }}</title>
 </head>
 <body>
 {% include html/body/header.html %}
