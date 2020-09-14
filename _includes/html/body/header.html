@@ -1,3 +1,9 @@
-<header></header>
+<header>
+	<nav class="navbar navbar-dark bg-primary mb-3">
+		<div class="container">
+			<span class="navbar-brand">{{ page.title | default: "<!--#echo var=SERVER_NAME -->" | capitalize }}</span>
+		</div>
+	</nav>
+</header>
 <main style="display:none">
 	<div class="container">
