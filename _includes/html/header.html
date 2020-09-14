@@ -5,6 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="{{ page.asset_dir | default: "/.abba" }}/css/{{ page.css_filename | default: "style.css" }}">
 	<title>{{ page.title | default: "<!--#echo var=SERVER_NAME -->" | capitalize }}</title>
+	<script>
+		const server_date = "{{ page.server_date | default: "<!--#config timefmt=%FT%T --><!--#echo var=DATE_LOCAL -->" }}";
+	</script>
 </head>
 <body>
 {% include html/body/header.html %}

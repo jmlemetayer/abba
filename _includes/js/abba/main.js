@@ -36,6 +36,8 @@ const icon_classe_by_type = {
 	"word": "fa-fw far fa-file-word",
 };
 
+const m_server = moment(server_date, moment.ISO_8601);
+
 // Parse each row
 $("tbody > tr").each(function(index) {
 	var icon = $("th", this).first();
@@ -56,7 +58,7 @@ $("tbody > tr").each(function(index) {
 	var m = moment(date.html(), "YYYY-MM-DD HH:mm");
 
 	if (moment().diff(m, "days", true) < 1) {
-		date.html(m.fromNow());
+		date.html(m.from(m_server));
 
 	} else if (moment().diff(m, "weeks", true) < 1) {
 		date.html(m.format("dddd LT"));
