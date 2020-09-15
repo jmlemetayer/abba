@@ -22,7 +22,7 @@ const columns = {
 };
 
 // Clear the icon column of the header
-$("thead th").eq(columns["icon"]).empty();
+$("thead th").eq(columns["icon"]).html("<i class='fa-fw far fa-home'/>");
 
 // Trim each cells inner html
 $("td, th").each(function() {
