@@ -13,8 +13,16 @@ $("table").prependIfNotExist("tbody", "<tbody/>").append($("tr"));
 // Move table header in <thead>
 $("table").prependIfNotExist("thead", "<thead/>").append($("tr").first());
 
+// Column indexes
+const columns = {
+	"icon": 0,
+	"name": 1,
+	"date": 2,
+	"size": 3,
+};
+
 // Clear the icon column of the header
-$("th").first().empty();
+$("thead th").eq(columns["icon"]).empty();
 
 // Trim each cells inner html
 $("td, th").each(function() {
@@ -33,9 +41,9 @@ const args = Object.fromEntries(args_array);
 
 // Add sorting arrows
 const sort_element_by_arg = {
-	"N": $("thead th").eq(-3),
-	"M": $("thead th").eq(-2),
-	"S": $("thead th").last(),
+	"N": $("thead th").eq(columns["name"]),
+	"M": $("thead th").eq(columns["date"]),
+	"S": $("thead th").eq(columns["size"]),
 };
 
 const sort_class_by_arg = {
@@ -69,10 +77,11 @@ const m_server = moment(server_date, moment.ISO_8601);
 
 // Parse each row
 $("tbody > tr").each(function(index) {
-	var icon = $("th", this).first();
-	var date = $("td", this).eq(-2);
-	var size = $("td", this).last();
-	var link = $("a", this).first();
+	var icon = $("td, th", this).eq(columns["icon"]);
+	var name = $("td, th", this).eq(columns["name"]);
+	var date = $("td, th", this).eq(columns["date"]);
+	var size = $("td, th", this).eq(columns["size"]);
+	var link = $("a", name);
 
 	// Read the type from the <img> alt text
 	var type = $("img", icon).attr("alt").replace(/[\[\] ]+/g, "");
