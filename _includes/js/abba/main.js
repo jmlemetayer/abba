@@ -24,6 +24,30 @@ $("td, th").each(function() {
 // Get the search query string
 const search = window.location.search;
 
+// Parse autoindex request query arguments
+// As mod_autoindex still use ";" as separators URLSearchParams cannot be used
+// So let's create a two dimensional array with the arguments
+const args_array = search.split(/^\?|;|&/).filter(Boolean).map(e => e.split("="));
+// Then convert it into a dictionary
+const args = Object.fromEntries(args_array);
+
+// Add sorting arrows
+const sort_element_by_arg = {
+	"N": $("thead th").eq(-3),
+	"M": $("thead th").eq(-2),
+	"S": $("thead th").last(),
+};
+
+const sort_class_by_arg = {
+	"A": "fa-fw fas fa-sort-down",
+	"D": "fa-fw fas fa-sort-up",
+};
+
+if ("C" in args && "O" in args) {
+	var icon = $("<i/>").addClass(sort_class_by_arg[args["O"]]);
+	sort_element_by_arg[args["C"]].append(icon);
+}
+
 const icon_classe_by_type = {
 	"default": "fa-fw far fa-file",
 	"directory": "fa-fw fas fa-folder",
