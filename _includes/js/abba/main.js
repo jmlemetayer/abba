@@ -21,6 +21,9 @@ $("td, th").each(function() {
 	$(this).html($(this).html().trim());
 });
 
+// Get the search query string
+const search = window.location.search;
+
 const icon_classe_by_type = {
 	"default": "fa-fw far fa-file",
 	"directory": "fa-fw fas fa-folder",
@@ -43,6 +46,7 @@ $("tbody > tr").each(function(index) {
 	var icon = $("th", this).first();
 	var date = $("td", this).eq(-2);
 	var size = $("td", this).last();
+	var link = $("a", this).first();
 
 	// Read the type from the <img> alt text
 	var type = $("img", icon).attr("alt").replace(/[\[\] ]+/g, "");
@@ -73,6 +77,7 @@ $("tbody > tr").each(function(index) {
 
 	// Update directory style
 	} else if (type === "directory") {
+		link.attr("href", link.attr("href") + search);
 		size.empty();
 	}
 });
@@ -82,10 +87,10 @@ const path_segments = window.location.pathname.split("/").filter(Boolean);
 
 // Create a name / url object for each path segments
 var path_url = "/";
-var path_urls = [{name: "<i class='fa-fw fas fa-home'/>", url: path_url}];
+var path_urls = [{name: "<i class='fa-fw fas fa-home'/>", url: path_url + search}];
 path_segments.forEach(function(segment) {
 	path_url += segment + "/";
-	path_urls.push({name: decodeURIComponent(segment), url: path_url});
+	path_urls.push({name: decodeURIComponent(segment), url: path_url + search});
 });
 
 // Create the breadcrumb elements for each previous objects
