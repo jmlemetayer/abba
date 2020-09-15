@@ -82,7 +82,7 @@ const path_segments = window.location.pathname.split("/").filter(Boolean);
 
 // Create a name / url object for each path segments
 var path_url = "/";
-var path_urls = [{name: "home", url: path_url}];
+var path_urls = [{name: "<i class='fa-fw fas fa-home'/>", url: path_url}];
 path_segments.forEach(function(segment) {
 	path_url += segment + "/";
 	path_urls.push({name: decodeURIComponent(segment), url: path_url});
