@@ -48,7 +48,8 @@ if ("C" in args && "O" in args) {
 	sort_element_by_arg[args["C"]].append(icon);
 }
 
-const icon_classe_by_type = {
+// Icon classes
+const icon_class_by_type = {
 	"default": "fa-fw far fa-file",
 	"directory": "fa-fw fas fa-folder",
 	"archive": "fa-fw far fa-file-archive",
@@ -63,6 +64,7 @@ const icon_classe_by_type = {
 	"word": "fa-fw far fa-file-word",
 };
 
+// Server current date
 const m_server = moment(server_date, moment.ISO_8601);
 
 // Parse each row
@@ -76,10 +78,10 @@ $("tbody > tr").each(function(index) {
 	var type = $("img", icon).attr("alt").replace(/[\[\] ]+/g, "");
 
 	// Replace the icon
-	if (type in icon_classe_by_type) {
-		icon.html("<i class='" + icon_classe_by_type[type] + "'/>");
+	if (type in icon_class_by_type) {
+		icon.html("<i class='" + icon_class_by_type[type] + "'/>");
 	} else {
-		icon.html("<i class='" + icon_classe_by_type["default"] + "'/>");
+		icon.html("<i class='" + icon_class_by_type["default"] + "'/>");
 	}
 
 	// Beautify date
