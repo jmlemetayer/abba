@@ -138,5 +138,13 @@ path_urls.forEach(function(url) {
 // Set the last breadcrumb item as active
 $(".breadcrumb li").last().addClass("active").children("a").contents().unwrap();
 
+// Filter table
+$("input[type=search]").on("input", function() {
+	var value = $(this).val().toLowerCase();
+	$("tbody tr").filter(function() {
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	});
+});
+
 // Show main
 $("main").show();

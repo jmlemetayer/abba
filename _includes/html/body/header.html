@@ -2,6 +2,9 @@
 	<nav class="navbar navbar-abba mb-3">
 		<div class="container">
 			<span class="navbar-brand">{{ page.title | default: "<!--#echo var=SERVER_NAME -->" | capitalize }}</span>
+			<div class="form-inline my-2">
+				<input class="form-control" type="search" placeholder="Filter..." aria-label="Filter">
+			</div>
 		</div>
 	</nav>
 </header>
