@@ -3,6 +3,8 @@ defaults:
       path: abba/html
     values:
       layout: compress
+      have_breadcrumb: true
+      have_filter: true
   - scope:
       path: previews
     values:
