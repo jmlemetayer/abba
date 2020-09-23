@@ -3,8 +3,12 @@ defaults:
       path: abba/html
     values:
       layout: compress
+      asset_dir: /.abba
+      css_filename: style.css
       have_breadcrumb: true
       have_filter: true
+      title: "<!--#echo var=SERVER_NAME -->"
+      server_date: "<!--#config timefmt=%FT%T --><!--#echo var=DATE_LOCAL -->"
   - scope:
       path: previews
     values:
