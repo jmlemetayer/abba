@@ -6,7 +6,6 @@ defaults:
   - scope:
       path: previews
     values:
-      layout: preview
       asset_dir: ../../abba
       server_date: "2020-09-14T09:23:00"
 
