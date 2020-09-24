@@ -86,6 +86,12 @@ $("table").prependIfNotExist("tbody", "<tbody/>").append($("tr"));
 // Move table header in <thead>
 $("table").prependIfNotExist("thead", "<thead/>").append($("tr").first());
 
+// Add scope=col for each header cells
+$("thead th").attr("scope", "col");
+
+// Add scope=row for each body header cells
+$("tbody th").attr("scope", "row");
+
 // Trim each cells inner html
 $("td, th").each(function() {
 	$(this).html($(this).html().trim());
