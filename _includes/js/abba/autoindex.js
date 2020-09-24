@@ -1,6 +1,17 @@
 // Get the search query string
 const search = window.location.search;
 
+// Create a screen reader friendly icon
+function create_icon(classes, title) {
+	return $("<i/>")
+		.addClass(classes)
+		.attr("title", title)
+		.attr("aria-hidden", "true")
+		.add($("<span/>")
+			.addClass("sr-only")
+			.text("(" + title + ")"));
+}
+
 ////
 //// Configure the <nav .navbar>
 ////
@@ -20,23 +31,33 @@ $("input[type=search]").on("input", function() {
 // Get the path segments and remove empty fields
 const path_segments = window.location.pathname.split("/").filter(Boolean);
 
-// Create a name / url object for each path segments
+// Create a html / url object for each path segments
 var path_url = "/";
-var path_urls = [{name: "<i class='fa-fw fas fa-home'/>", url: path_url + search}];
+var path_urls = [{
+	html: create_icon("fa-fw fas fa-home", document.title),
+	url: path_url + search,
+}];
+
 path_segments.forEach(function(segment) {
 	path_url += segment + "/";
-	path_urls.push({name: decodeURIComponent(segment), url: path_url + search});
+	path_urls.push({
+		html: decodeURIComponent(segment),
+		url: path_url + search
+	});
 });
 
 // Create the breadcrumb elements for each previous objects
 path_urls.forEach(function(url) {
-	var a = $("<a/>").attr("href", url.url).html(url.name);
+	var a = $("<a/>").attr("href", url.url).html(url.html);
 	var li = $("<li/>").addClass("breadcrumb-item").append(a);
 	$(".breadcrumb").append(li);
 });
 
 // Set the last breadcrumb item as active
-$(".breadcrumb li").last().addClass("active").children("a").contents().unwrap();
+$(".breadcrumb li").last()
+	.addClass("active")
+	.attr("aria-current", "page")
+	.children("a").contents().unwrap();
 
 ////
 //// Configure the <table>
