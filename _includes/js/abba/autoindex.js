@@ -146,18 +146,54 @@ if ("C" in args && args["C"] in sort_element_by_arg
 
 // Icon classes
 const icon_class_by_type = {
-	"default": "fa-fw far fa-file",
-	"directory": "fa-fw fas fa-folder",
-	"archive": "fa-fw far fa-file-archive",
-	"audio": "fa-fw far fa-file-audio",
-	"code": "fa-fw far fa-file-code",
-	"excel": "fa-fw far fa-file-excel",
-	"image": "fa-fw far fa-file-image",
-	"pdf": "fa-fw far fa-file-pdf",
-	"powerpoint": "fa-fw far fa-file-powerpoint",
-	"text": "fa-fw far fa-file-alt",
-	"video": "fa-fw far fa-file-video",
-	"word": "fa-fw far fa-file-word",
+	"default": {
+		title: "File",
+		classes: "fa-fw far fa-file",
+	},
+	"directory": {
+		title: "Directory",
+		classes: "fa-fw fas fa-folder",
+	},
+	"archive": {
+		title: "Archive file",
+		classes: "fa-fw far fa-file-archive",
+	},
+	"audio": {
+		title: "Audio file",
+		classes: "fa-fw far fa-file-audio",
+	},
+	"code": {
+		title: "Source code file",
+		classes: "fa-fw far fa-file-code",
+	},
+	"excel": {
+		title: "Spreadsheet file",
+		classes: "fa-fw far fa-file-excel",
+	},
+	"image": {
+		title: "Image file",
+		classes: "fa-fw far fa-file-image",
+	},
+	"pdf": {
+		title: "PDF file",
+		classes: "fa-fw far fa-file-pdf",
+	},
+	"powerpoint": {
+		title: "Presentation file",
+		classes: "fa-fw far fa-file-powerpoint",
+	},
+	"text": {
+		title: "Text file",
+		classes: "fa-fw far fa-file-alt",
+	},
+	"video": {
+		title: "Video file",
+		classes: "fa-fw far fa-file-video",
+	},
+	"word": {
+		title: "Word file",
+		classes: "fa-fw far fa-file-word",
+	},
 };
 
 // Server current date
@@ -175,11 +211,9 @@ $("tbody > tr").each(function(index) {
 	var type = $("img", icon).attr("alt").replace(/[\[\] ]+/g, "");
 
 	// Replace the icon
-	if (type in icon_class_by_type) {
-		icon.html("<i class='" + icon_class_by_type[type] + "'/>");
-	} else {
-		icon.html("<i class='" + icon_class_by_type["default"] + "'/>");
-	}
+	var icon_type = (type in icon_class_by_type) ? type : "default";
+	var icon_class = icon_class_by_type[icon_type];
+	icon.html(create_icon(icon_class.classes, icon_class.title));
 
 	// Beautify date
 	var m = moment(date.html(), "YYYY-MM-DD HH:mm");
