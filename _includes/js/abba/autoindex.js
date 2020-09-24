@@ -1,3 +1,55 @@
+// Get the search query string
+const search = window.location.search;
+
+////
+//// Configure the <nav .navbar>
+////
+
+// Filter table
+$("input[type=search]").on("input", function() {
+	var value = $(this).val().toLowerCase();
+	$("tbody tr").filter(function() {
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	});
+});
+
+////
+//// Configure the <nav .breadcrumb>
+////
+
+// Get the path segments and remove empty fields
+const path_segments = window.location.pathname.split("/").filter(Boolean);
+
+// Create a name / url object for each path segments
+var path_url = "/";
+var path_urls = [{name: "<i class='fa-fw fas fa-home'/>", url: path_url + search}];
+path_segments.forEach(function(segment) {
+	path_url += segment + "/";
+	path_urls.push({name: decodeURIComponent(segment), url: path_url + search});
+});
+
+// Create the breadcrumb elements for each previous objects
+path_urls.forEach(function(url) {
+	var a = $("<a/>").attr("href", url.url).html(url.name);
+	var li = $("<li/>").addClass("breadcrumb-item").append(a);
+	$(".breadcrumb").append(li);
+});
+
+// Set the last breadcrumb item as active
+$(".breadcrumb li").last().addClass("active").children("a").contents().unwrap();
+
+////
+//// Configure the <table>
+////
+
+// Column indexes
+const columns = {
+	"icon": 0,
+	"name": 1,
+	"date": 2,
+	"size": 3,
+};
+
 // Use Bootstrap table
 $("table").addClass("table table-hover").wrap("<div class='table-responsive'>");
 
@@ -13,14 +65,6 @@ $("table").prependIfNotExist("tbody", "<tbody/>").append($("tr"));
 // Move table header in <thead>
 $("table").prependIfNotExist("thead", "<thead/>").append($("tr").first());
 
-// Column indexes
-const columns = {
-	"icon": 0,
-	"name": 1,
-	"date": 2,
-	"size": 3,
-};
-
 // Clear the icon column of the header
 $("thead th").eq(columns["icon"]).html("<i class='fa-fw far fa-home'/>");
 
@@ -28,9 +72,6 @@ $("thead th").eq(columns["icon"]).html("<i class='fa-fw far fa-home'/>");
 $("td, th").each(function() {
 	$(this).html($(this).html().trim());
 });
-
-// Get the search query string
-const search = window.location.search;
 
 // Parse autoindex request query arguments
 // As mod_autoindex still use ";" as separators URLSearchParams cannot be used
@@ -115,33 +156,4 @@ $("tbody > tr").each(function(index) {
 		link.attr("href", link.attr("href") + search);
 		size.empty();
 	}
-});
-
-// Get the path segments and remove empty fields
-const path_segments = window.location.pathname.split("/").filter(Boolean);
-
-// Create a name / url object for each path segments
-var path_url = "/";
-var path_urls = [{name: "<i class='fa-fw fas fa-home'/>", url: path_url + search}];
-path_segments.forEach(function(segment) {
-	path_url += segment + "/";
-	path_urls.push({name: decodeURIComponent(segment), url: path_url + search});
-});
-
-// Create the breadcrumb elements for each previous objects
-path_urls.forEach(function(url) {
-	var a = $("<a/>").attr("href", url.url).html(url.name);
-	var li = $("<li/>").addClass("breadcrumb-item").append(a);
-	$(".breadcrumb").append(li);
-});
-
-// Set the last breadcrumb item as active
-$(".breadcrumb li").last().addClass("active").children("a").contents().unwrap();
-
-// Filter table
-$("input[type=search]").on("input", function() {
-	var value = $(this).val().toLowerCase();
-	$("tbody tr").filter(function() {
-		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-	});
 });
