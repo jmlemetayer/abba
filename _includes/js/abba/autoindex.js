@@ -86,13 +86,13 @@ $("table").prependIfNotExist("tbody", "<tbody/>").append($("tr"));
 // Move table header in <thead>
 $("table").prependIfNotExist("thead", "<thead/>").append($("tr").first());
 
-// Clear the icon column of the header
-$("thead th").eq(columns["icon"]).html("<i class='fa-fw far fa-home'/>");
-
 // Trim each cells inner html
 $("td, th").each(function() {
 	$(this).html($(this).html().trim());
 });
+
+// Clear the icon column of the header and add a spacer
+$("thead th").eq(columns["icon"]).html($("<div/>").addClass("fa-fw"));
 
 // Parse autoindex request query arguments
 // As mod_autoindex still use ";" as separators URLSearchParams cannot be used
