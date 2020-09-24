@@ -5,11 +5,12 @@
 @import "autoindex";
 
 // Allow the navbar to be customized by theme
-$navbar-abba-class: ".navbar-dark" !default;
-$navbar-abba-bg-class: ".bg-primary" !default;
+$abba-navbar-class: ".navbar-dark" !default;
+$abba-navbar-bg-class: ".bg-primary" !default;
 
-.navbar-abba {
+.navbar {
 	@extend .navbar-expand;
-	@extend #{$navbar-abba-class};
-	@extend #{$navbar-abba-bg-class};
+
+	@extend #{$abba-navbar-class};
+	@extend #{$abba-navbar-bg-class};
 }
