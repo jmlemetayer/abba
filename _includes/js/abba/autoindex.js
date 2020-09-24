@@ -109,19 +109,39 @@ const args = Object.fromEntries(args_array);
 
 // Add sorting arrows
 const sort_element_by_arg = {
-	"N": $("thead th").eq(columns["name"]),
-	"M": $("thead th").eq(columns["date"]),
-	"S": $("thead th").eq(columns["size"]),
+	"N": {
+		name: "file name",
+		element: $("thead th").eq(columns["name"]),
+	},
+	"M": {
+		name: "last-modified date",
+		element: $("thead th").eq(columns["date"]),
+	},
+	"S": {
+		name: "size",
+		element: $("thead th").eq(columns["size"]),
+	},
 };
 
-const sort_class_by_arg = {
-	"A": "fa-fw fas fa-sort-down",
-	"D": "fa-fw fas fa-sort-up",
+const sort_order_by_arg = {
+	"A": {
+		name: "ascending",
+		classes: "fa-fw fas fa-sort-down",
+	},
+	"D": {
+		name: "descending",
+		classes: "fa-fw fas fa-sort-up",
+	},
 };
 
-if ("C" in args && "O" in args) {
-	var icon = $("<i/>").addClass(sort_class_by_arg[args["O"]]);
-	sort_element_by_arg[args["C"]].append(icon);
+if ("C" in args && args["C"] in sort_element_by_arg
+	&& "O" in args && args["O"] in sort_order_by_arg) {
+
+	var element = sort_element_by_arg[args["C"]];
+	var order = sort_order_by_arg[args["O"]];
+	var title = "Sorted by " + order.name + " " + element.name;
+	var icon = create_icon(order.classes, title);
+	$("a", element.element).append(icon);
 }
 
 // Icon classes
