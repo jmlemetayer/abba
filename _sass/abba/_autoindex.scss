@@ -1,3 +1,8 @@
+// Add same margins between the navbar, the breadcrumb and the table.
+.breadcrumb {
+	margin-top: $breadcrumb-margin-bottom;
+}
+
 .table {
 	// Hoverable rows
 	@extend .table-hover;
