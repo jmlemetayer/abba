@@ -4,6 +4,28 @@
 
 @import "autoindex";
 
+// Positioning:
+// - Default <header>
+// - Sticky <footer>
+// - Remaining height for the <main>
+html,
+body {
+	@extend .h-100;
+}
+
+body {
+	@extend .d-flex;
+	@extend .flex-column;
+
+	> main {
+		@extend .flex-grow-1;
+	}
+
+	> footer {
+		@extend .mt-auto;
+	}
+}
+
 // Allow the navbar to be customized by theme
 $abba-navbar-class: ".navbar-dark" !default;
 $abba-navbar-bg-class: ".bg-primary" !default;
