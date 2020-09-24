@@ -72,7 +72,7 @@ const columns = {
 };
 
 // Use Bootstrap table
-$("table").addClass("table table-hover").wrap("<div class='table-responsive'>");
+$("table").addClass("table").wrap("<div class='table-responsive'>");
 
 // Remove valign="top" and align="right"
 $("td, th").removeAttr("align").removeAttr("valign");
