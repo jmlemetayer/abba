@@ -36,3 +36,18 @@ $abba-navbar-bg-class: ".bg-primary" !default;
 	@extend #{$abba-navbar-class};
 	@extend #{$abba-navbar-bg-class};
 }
+
+// Footer customization
+footer > .container {
+	@extend .py-3;
+	@extend .text-center;
+
+	a {
+		@extend .text-muted;
+		@extend .text-decoration-none;
+
+		.fa-heart {
+			@extend .text-danger;
+		}
+	}
+}
