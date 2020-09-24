@@ -218,10 +218,10 @@ $("tbody > tr").each(function(index) {
 	// Beautify date
 	var m = moment(date.html(), "YYYY-MM-DD HH:mm");
 
-	if (moment().diff(m, "days", true) < 1) {
+	if (m_server.diff(m, "days", true) < 1) {
 		date.html(m.from(m_server));
 
-	} else if (moment().diff(m, "weeks", true) < 1) {
+	} else if (m_server.diff(m, "weeks", true) < 1) {
 		date.html(m.format("dddd LT"));
 
 	} else {
