@@ -1,27 +1,47 @@
 .table {
+	// Hoverable rows
+	@extend .table-hover;
+
 	// Disable wrapping for all cells as responsive table is used
-	td, th { white-space: nowrap }
+	td,
+	th {
+		@extend .text-nowrap;
+	}
 
 	// Links and texts have the same color
-	a { color: $table-color }
+	a {
+		@extend .text-reset;
+	}
 
 	// Directory icons are highlighted
-	.fa-folder { color: $link-color }
+	.fa-folder {
+		@extend .text-primary;
+	}
 
 	// Expand the "Name" column
 	tbody td:nth-child(2),
-	thead th:nth-child(2) { width: 100% }
+	thead th:nth-child(2) {
+		@extend .w-100;
+	}
 
 	// Center the "Last modified" and "Size" column
 	tbody td:nth-child(n+3),
-	thead th:nth-child(n+3) { text-align: center }
+	thead th:nth-child(n+3) {
+		@extend .text-center;
+	}
 
 	// Increase spacing between the columns
 	tbody td:not(:first-child),
-	thead th:not(:first-child) { padding-left: 2 * $table-cell-padding }
+	thead th:not(:first-child) {
+		padding-left: 2 * $table-cell-padding;
+	}
 
-	// Expand the link to the whole row (and header cell)
-	tbody tr,
-	thead th { transform: rotate(0) }
-	a { @extend .stretched-link }
+	// Expand the link to the whole row
+	tbody tr {
+		transform: rotate(0);
+
+		a {
+			@extend .stretched-link;
+		}
+	}
 }
