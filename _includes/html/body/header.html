@@ -2,12 +2,13 @@
 	<nav class="navbar">
 		<div class="container">
 			<span class="navbar-brand">{{ page.title | capitalize }}</span>
-{% if layout.is_preview %}
+{% if layout.is_autoindex or page.is_autoindex or layout.is_preview %}
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#preview" aria-controls="preview" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="preview">
-				<ul class="navbar-nav mr-auto">
+{% if layout.is_preview %}
+				<ul class="navbar-nav">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="themes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Themes</a>
 						<div class="dropdown-menu" aria-labelledby="themes">
@@ -30,7 +31,6 @@
 					<input class="form-control" type="search" placeholder="Filter..." aria-label="Filter">
 				</div>
 {% endif %}
-{% if layout.is_preview %}
 			</div>
 {% endif %}
 		</div>
