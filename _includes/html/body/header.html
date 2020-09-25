@@ -2,7 +2,7 @@
 	<nav class="navbar">
 		<div class="container">
 			<span class="navbar-brand">{{ page.title | capitalize }}</span>
-{% if layout.have_filter or page.have_filter %}
+{% if layout.is_autoindex or page.is_autoindex %}
 			<div class="form-inline">
 				<input class="form-control" type="search" placeholder="Filter..." aria-label="Filter">
 			</div>
@@ -12,7 +12,7 @@
 </header>
 <main style="display:none">
 	<div class="container">
-{% if layout.have_breadcrumb or page.have_breadcrumb %}
+{% if layout.is_autoindex or page.is_autoindex %}
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb"></ol>
 		</nav>
