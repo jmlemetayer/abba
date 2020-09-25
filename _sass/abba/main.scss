@@ -31,7 +31,7 @@ $abba-navbar-class: ".navbar-dark" !default;
 $abba-navbar-bg-class: ".bg-primary" !default;
 
 .navbar {
-	@extend .navbar-expand;
+	@extend .navbar-expand-lg;
 
 	@extend #{$abba-navbar-class};
 	@extend #{$abba-navbar-bg-class};
