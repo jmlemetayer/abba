@@ -3,5 +3,8 @@
 		const server_date = "{{ page.server_date }}";
 	</script>
 	<script src="{{ page.asset_dir }}/js/script.js"></script>
+{% if layout.is_preview %}
+	<script src="{{ page.asset_dir }}/js/bootstrap.bundle.min.js"></script>
+{% endif %}
 </body>
 </html>
