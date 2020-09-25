@@ -1,7 +1,11 @@
 <header>
 	<nav class="navbar">
 		<div class="container">
-			<span class="navbar-brand">{{ page.title | capitalize }}</span>
+{% if layout.is_preview %}
+			<a class="navbar-brand" href="../../">ABBA</a>
+{% else %}
+			<a class="navbar-brand" href="/">{{ page.title }}</a>
+{% endif %}
 {% if layout.is_autoindex or page.is_autoindex or layout.is_preview %}
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#preview" aria-controls="preview" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
