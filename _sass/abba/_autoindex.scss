@@ -1,3 +1,10 @@
+// Add some margin between the input field and the dropdown menu when the
+// navbar is collapsed.
+.form-inline {
+	@extend .my-2;
+	@extend .my-lg-0;
+}
+
 // Add same margins between the navbar, the breadcrumb and the table.
 .breadcrumb {
 	margin-top: $breadcrumb-margin-bottom;
