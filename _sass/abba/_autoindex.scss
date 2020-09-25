@@ -5,6 +5,22 @@
 	@extend .my-lg-0;
 }
 
+// Display the themes on 3 columns
+.dropdown-menu.show[aria-labelledby="themes"] {
+	@extend .d-flex;
+	@extend .flex-wrap;
+
+	min-width: 330px;
+
+	.dropdown-item {
+		width: percentage(1 / 3);
+
+		&:first-child {
+			width: 100%;
+		}
+	}
+}
+
 // Add same margins between the navbar, the breadcrumb and the table.
 .breadcrumb {
 	margin-top: $breadcrumb-margin-bottom;
