@@ -92,6 +92,10 @@ curl -sL ${BASE_URL}/abba/htaccess -o .htaccess
 curl -sL ${BASE_URL}/abba/css/${THEME}.css -o .abba/css/style.css
 curl -sL ${BASE_URL}/abba/html/header.shtml -o .abba/html/header.shtml
 curl -sL ${BASE_URL}/abba/html/footer.shtml -o .abba/html/footer.shtml
+for ERROR in 401 403 404 500
+do
+	curl -sL ${BASE_URL}/abba/html/error_${ERROR}.shtml -o .abba/html/error_${ERROR}.shtml
+done
 curl -sL ${BASE_URL}/abba/js/script.js -o .abba/js/script.js
 for FONT in fa-regular-400 fa-solid-900
 do
