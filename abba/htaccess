@@ -19,6 +19,10 @@
 	# Use ABBA header and footer
 	HeaderName /.abba/html/header.shtml
 	ReadmeName /.abba/html/footer.shtml
+	ErrorDocument 401 /.abba/html/error_401.shtml
+	ErrorDocument 403 /.abba/html/error_403.shtml
+	ErrorDocument 404 /.abba/html/error_404.shtml
+	ErrorDocument 500 /.abba/html/error_500.shtml
 	# Do not add extra preamble
 	IndexOptions SuppressHTMLPreamble
 	# Ignore ABBA assets
