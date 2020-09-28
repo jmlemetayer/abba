@@ -1,0 +1,26 @@
+main > .container {
+	@extend .h-100;
+	@extend .d-flex;
+	@extend .flex-column;
+}
+
+.jumbotron {
+	@extend .m-auto;
+
+	h1 {
+		@extend .text-center;
+		@extend .pb-2;
+		@extend .border-bottom;
+		@extend .mb-3;
+	}
+
+	.blockquote-footer {
+		@extend .text-right;
+	}
+
+	.btn {
+		@extend .btn-primary;
+		@extend .btn-block;
+		@extend .mt-3;
+	}
+}
