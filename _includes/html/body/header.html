@@ -16,14 +16,14 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="themes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Themes</a>
 						<div class="dropdown-menu" aria-labelledby="themes">
-							<a class="dropdown-item" href="../default/">Default</a>
+							<a class="dropdown-item" href="../default/{{ page.name | remove: "index.html" }}">Default</a>
 							<div class="dropdown-divider"></div>
 {% assign css_pages = site.pages | where: "dir", "/abba/css/" %}
 {% assign css_themes = "" | split: "," %}
-{% for page in css_pages %}
-{% assign theme = page.name | remove: ".scss" %}
+{% for css_page in css_pages %}
+{% assign theme = css_page.name | remove: ".scss" %}
 {% unless theme == "default" %}
-							<a class="dropdown-item" href="../{{ theme }}/">{{ theme | capitalize }}</a>
+							<a class="dropdown-item" href="../{{ theme }}/{{ page.name | remove: "index.html" }}">{{ theme | capitalize }}</a>
 {% endunless %}
 {% endfor %}
 						</div>
