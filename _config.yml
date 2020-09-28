@@ -3,16 +3,24 @@ defaults:
       path: abba/html
     values:
       layout: compress
-      is_autoindex: true
       asset_dir: /.abba
       css_filename: style.css
       title: "<!--#echo var=SERVER_NAME -->"
       server_date: "<!--#config timefmt=%FT%T --><!--#echo var=DATE_LOCAL -->"
   - scope:
+      path: abba/html/*er.shtml
+    values:
+      is_autoindex: true
+  - scope:
       path: previews
     values:
       asset_dir: ../../abba
+      is_preview: true
       server_date: "2020-09-14T09:23:00"
+  - scope:
+      path: previews/*/index.html
+    values:
+      is_autoindex: true
 
 compress_html:
     clippings: all
