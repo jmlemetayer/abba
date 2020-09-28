@@ -28,6 +28,19 @@
 {% endfor %}
 						</div>
 					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{ page.css_filename | remove: ".css" | capitalize }}
+						</a>
+						<div class="dropdown-menu" aria-labelledby="pages">
+							<a class="dropdown-item" href="./">Autoindex</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="./error_401.html">Error 401</a>
+							<a class="dropdown-item" href="./error_403.html">Error 403</a>
+							<a class="dropdown-item" href="./error_404.html">Error 404</a>
+							<a class="dropdown-item" href="./error_500.html">Error 500</a>
+						</div>
+					</li>
 				</ul>
 {% endif %}
 {% if page.is_autoindex %}
