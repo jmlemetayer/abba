@@ -1,0 +1,55 @@
+dependencies:
+  bootstrap:
+    assets:
+    - dst: _sass/bootstrap
+      src: scss
+    - dst: _includes/js/bootstrap/bootstrap.min.js
+      src: dist/js/bootstrap.bundle.min.js
+    branch: v4-dev
+    tag: v4.5.2
+    url: https://github.com/twbs/bootstrap.git
+  bootswatch:
+    assets:
+    - dst: _sass/bootswatch
+      filters:
+      - '**/*.scss'
+      src: dist
+    branch: v4
+    tag: v4.5.2
+    url: https://github.com/thomaspark/bootswatch.git
+  fontawesome:
+    assets:
+    - dst: _sass/fontawesome
+      src: scss
+    - dst: abba/webfonts
+      src: webfonts
+    branch: master
+    tag: 5.14.0
+    url: https://github.com/FortAwesome/Font-Awesome.git
+  jekyll-compress-html:
+    assets:
+    - dst: _layouts/compress.html
+      url: https://github.com/penibelst/jekyll-compress-html/releases/download/${tag}/compress.html
+    branch: master
+    tag: v3.1.0
+    url: https://github.com/penibelst/jekyll-compress-html.git
+  jquery:
+    assets:
+    - dst: _includes/js/jquery/jquery.slim.min.js
+      url: https://code.jquery.com/jquery-${tag}.slim.min.js
+    tag: 3.5.0
+    url: https://github.com/jquery/jquery.git
+  momentjs:
+    assets:
+    - dst: _includes/js/moment/moment.min.js
+      src: min/moment.min.js
+    branch: master
+    tag: 2.27.0
+    url: https://github.com/moment/moment.git
+  popperjs:
+    assets:
+    - dst: _includes/js/popperjs/popper.min.js
+      url: https://unpkg.com/@popperjs/core@${tag}
+    branch: master
+    tag: v2.5.2
+    url: https://github.com/popperjs/popper-core.git

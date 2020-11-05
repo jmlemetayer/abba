@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+"""Automatically Update ABBA Dependencies
+
+Usage: update_dependencies [options]
+
+Options:
+    -c <file>, --configuration=<file>    Use the specified configuration file.
+    --no-commit                          Do not create commits.
+    -h, --help                           Display this help and exit.
+    --version                            Display version information and exit.
+"""
+
+import glob
+import os
+import requests
+import shutil
+import sys
+import tempfile
+import yaml
+
+from docopt import docopt
+from git import Repo
+from string import Template
+
+def update_dependency_from_url(urlpath, dstpath):
+    with requests.get(urlpath, stream=True) as r:
+        r.raise_for_status()
+        with open(dstpath, "wb") as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+
+def update_dependency_from_src(asset, srcpath, dstpath):
+    if os.path.isdir(dstpath):
+        shutil.rmtree(dstpath)
+    else:
+        os.remove(dstpath)
+
+    if os.path.isdir(srcpath):
+        files = []
+
+        def list_extend(a, b):
+            for i in b:
+                if i not in a:
+                    a.append(i)
+            return a
+
+        for f in asset.get("filters", [ "**/*" ]):
+            g = glob.glob(os.path.join(srcpath, f), recursive=True)
+            files = list_extend(files, g)
+
+        def list_remove(a, b):
+            for i in b:
+                if i in a:
+                    a.remove(i)
+            return a
+
+        for f in asset.get("filters-out", []):
+            g = glob.glob(os.path.join(srcpath, f), recursive=True)
+            files = list_remove(files, g)
+
+        def apply_filters(allowed):
+            def filter_func(root, paths):
+                return [p for p in paths
+                        if not os.path.isdir(os.path.join(root, p))
+                        and os.path.join(root, p) not in allowed]
+            return filter_func
+
+        shutil.copytree(srcpath, dstpath, ignore=apply_filters(files))
+    else:
+        shutil.copy2(srcpath, dstpath)
+
+def update_dependency(tag, asset, working_dir, upstream_dir):
+    dstpath = os.path.join(working_dir, asset["dst"])
+    src = asset.get("src")
+    url = asset.get("url")
+
+    if src is not None:
+        srcpath = os.path.join(upstream_dir, src)
+        update_dependency_from_src(asset, srcpath, dstpath)
+
+    elif url is not None:
+        urlpath = Template(url).substitute(tag=tag)
+        update_dependency_from_url(urlpath, dstpath)
+
+def check_dependency(name, data, working_dir):
+    url = data["url"]
+    branch = data.get("branch")
+    tag = data["tag"]
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        print(f"{name}: fetching upstream...")
+        repo = Repo.clone_from(url, tmpdir, branch=branch)
+
+        if branch is not None:
+            upstream_tag = repo.git.describe("--abbrev=0", "--tags")
+        else:
+            upstream_tag = str(repo.tags[-1])
+
+        if upstream_tag == tag:
+            print(f"{name}: already up-to-date, nothing to do")
+            return (False, upstream_tag)
+        else:
+            print(f"{name}: updating from {tag} to {upstream_tag}")
+            for asset in data.get("assets", []):
+                update_dependency(upstream_tag, asset, working_dir, tmpdir)
+            return (True, upstream_tag)
+
+if __name__ == "__main__":
+    args = docopt(__doc__, version="update_dependencies 1.0")
+
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    config_default = os.path.join(script_dir, "dependencies.yaml")
+    config_file = args["--configuration"] or config_default
+
+    with open(config_file) as f:
+        config = yaml.safe_load(f)
+
+    repo = Repo(".", search_parent_directories=True)
+
+    if repo.is_dirty() and not args["--no-commit"]:
+        sys.exit("The ABBA git repository is dirty.")
+
+    for name, data in config.get("dependencies", {}).items():
+        (updated, tag) = check_dependency(name, data, repo.working_tree_dir)
+
+        if updated:
+            config["dependencies"][name]["tag"] = tag
+
+            with open(config_file, "w") as f:
+                yaml.dump(config, f)
+
+            if not args["--no-commit"]:
+                repo.git.add("--all")
+                repo.index.commit(f"{name}: update to {tag}")
