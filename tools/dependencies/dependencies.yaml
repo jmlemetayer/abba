@@ -15,7 +15,7 @@ dependencies:
       - '**/*.scss'
       src: dist
     branch: v4
-    tag: v4.5.2
+    tag: v4.5.3
     url: https://github.com/thomaspark/bootswatch.git
   fontawesome:
     assets:
