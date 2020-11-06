@@ -24,7 +24,7 @@ dependencies:
     - dst: abba/webfonts
       src: webfonts
     branch: master
-    tag: 5.14.0
+    tag: 5.15.1
     url: https://github.com/FortAwesome/Font-Awesome.git
   jekyll-compress-html:
     assets:
