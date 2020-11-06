@@ -44,7 +44,7 @@ dependencies:
     - dst: _includes/js/moment/moment.min.js
       src: min/moment.min.js
     branch: master
-    tag: 2.27.0
+    tag: 2.29.1
     url: https://github.com/moment/moment.git
   popperjs:
     assets:
