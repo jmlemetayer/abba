@@ -37,7 +37,7 @@ dependencies:
     assets:
     - dst: _includes/js/jquery/jquery.slim.min.js
       url: https://code.jquery.com/jquery-${tag}.slim.min.js
-    tag: 3.5.1
+    tag: 3.6.0
     url: https://github.com/jquery/jquery.git
   momentjs:
     assets:
