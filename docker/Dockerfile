@@ -11,7 +11,7 @@ RUN	set -x \
 		ca-certificates curl \
 	&& rm -rf /var/lib/apt/lists/*
 
-VOLUME	["var/www"]
+VOLUME	["/var/www"]
 WORKDIR	/var/www
 
 COPY	docker-entrypoint.sh /usr/local/bin/
