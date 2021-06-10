@@ -5,7 +5,7 @@ dependencies:
       src: scss
     - dst: _includes/js/bootstrap/bootstrap.min.js
       src: dist/js/bootstrap.bundle.min.js
-    branch: v4-dev
+    branch: main
     tag: v4.6.0
     url: https://github.com/twbs/bootstrap.git
   bootswatch:
@@ -14,7 +14,7 @@ dependencies:
       filters:
       - '**/*.scss'
       src: dist
-    branch: v4
+    branch: v5
     tag: v4.6.0
     url: https://github.com/thomaspark/bootswatch.git
   fontawesome:
@@ -46,10 +46,3 @@ dependencies:
     branch: master
     tag: 2.29.1
     url: https://github.com/moment/moment.git
-  popperjs:
-    assets:
-    - dst: _includes/js/popperjs/popper.min.js
-      url: https://unpkg.com/@popperjs/core@${tag}
-    branch: master
-    tag: v2.9.2
-    url: https://github.com/popperjs/popper-core.git
