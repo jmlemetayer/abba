@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="{{ page.asset_dir }}/css/{{ page.css_filename }}">
-{% if layout.is_preview %}
-	<title>ABBA: {{ page.css_filename | remove: ".css" | capitalize }}</title>
+{% if page.is_preview %}
+	<title>ABBA - {{ page.css_filename | remove: ".css" | capitalize }}</title>
 {% else %}
 	<title>{{ page.title }}</title>
 {% endif %}

@@ -1,2 +1,2 @@
 // Configure the Back button href
-$(".jumbotron a.btn").attr("href", document.referrer);
+$(".card a.btn").attr("href", document.referrer);

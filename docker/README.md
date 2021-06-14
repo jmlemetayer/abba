@@ -25,7 +25,7 @@ image.
 
 The builder image used is the [GitHub Pages server][github-pages].
 
-First, create an dedicated network to be able to link the two containers.
+First, create a dedicated network to be able to link the two containers.
 
     docker network create abba
 

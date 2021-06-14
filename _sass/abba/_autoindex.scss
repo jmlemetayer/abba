@@ -1,27 +1,3 @@
-// Add some margin between the input field and the dropdown menu when the
-// navbar is collapsed.
-.form-inline {
-	@extend .my-2;
-	@extend .my-lg-0;
-	@extend .ml-auto;
-}
-
-// Display the themes on 3 columns
-.dropdown-menu.show[aria-labelledby="themes"] {
-	@extend .d-flex;
-	@extend .flex-wrap;
-
-	min-width: 330px;
-
-	.dropdown-item {
-		width: percentage(1 / 3);
-
-		&:first-child {
-			width: 100%;
-		}
-	}
-}
-
 // Add same margins between the navbar, the breadcrumb and the table.
 .breadcrumb {
 	margin-top: $breadcrumb-margin-bottom;
@@ -62,7 +38,7 @@
 	// Increase spacing between the columns
 	tbody td:not(:first-child),
 	thead th:not(:first-child) {
-		padding-left: 2 * $table-cell-padding;
+		padding-left: 2 * $table-cell-padding-x;
 	}
 
 	// Expand the link to the whole row

@@ -1,0 +1,7 @@
+// Allow the navbar to be customized by theme
+$abba-navbar-class: ".navbar-dark" !default;
+$abba-navbar-bg-class: ".bg-primary" !default;
+
+// Link customization (no underline unless it is hover)
+$link-decoration:	none !default;
+$link-hover-decoration:	underline !default;

@@ -27,15 +27,17 @@ body {
 	}
 }
 
-// Allow the navbar to be customized by theme
-$abba-navbar-class: ".navbar-dark" !default;
-$abba-navbar-bg-class: ".bg-primary" !default;
-
+// Navbar customization
 .navbar {
 	@extend .navbar-expand-lg;
 
 	@extend #{$abba-navbar-class};
 	@extend #{$abba-navbar-bg-class};
+
+	// Put filter to the right
+	.navbar-collapse > div:only-child {
+		margin-left: auto;
+	}
 }
 
 // Footer customization
@@ -50,5 +52,27 @@ footer > .container {
 		.fa-heart {
 			@extend .text-danger;
 		}
+	}
+}
+
+// Display the themes on 3 columns
+.dropdown-menu.show[aria-labelledby="themes"] {
+	@extend .d-flex;
+	@extend .flex-wrap;
+
+	@include media-breakpoint-up(lg) {
+		width: 420px;
+	}
+
+	.dropdown-item {
+		width: percentage(1 / 3);
+
+		&:first-child {
+			width: 100%;
+		}
+	}
+
+	.dropdown-divider {
+		width: 100%;
 	}
 }

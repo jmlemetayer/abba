@@ -108,7 +108,7 @@ done
 # Generate the uninstall script
 cat << EOF > .abba/uninstall
 #!/bin/sh
-rm -rf ${PWD}/.htaccess
+rm -f ${PWD}/.htaccess
 rm -rf ${PWD}/.abba
 EOF
 

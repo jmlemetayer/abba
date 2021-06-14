@@ -1,9 +1,17 @@
 ---
 layout: starter
 ---
-<div class="jumbotron">
-	{{ content }}
-	<a class="btn" href="#" role="button">
-		Back
-	</a>
+<div class="card">
+	<div class="card-header">{{ layout.error }}</div>
+	<div class="card-body">
+		<figure>
+			<blockquote class="blockquote">
+				<p>{{ content | newline_to_br }}</p>
+			</blockquote>
+			<figcaption class="blockquote-footer">
+				{{ layout.song }}
+			</figcaption>
+		</figure>
+		<a class="btn" href="#" role="button">Back</a>
+	</div>
 </div>

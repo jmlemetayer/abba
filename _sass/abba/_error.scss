@@ -4,23 +4,26 @@ main > .container {
 	@extend .flex-column;
 }
 
-.jumbotron {
-	@extend .m-auto;
+.card {
+	@extend .border-primary;
 
-	h1 {
+	@include media-breakpoint-up(lg) {
+		width: 540px;
+		margin: auto;
+	}
+
+	@include media-breakpoint-down(lg) {
+		align-items: stretch;
+		margin: auto 0;
+	}
+
+	.card-body {
+		width: 100%;
+
 		@extend .text-center;
-		@extend .pb-2;
-		@extend .border-bottom;
-		@extend .mb-3;
-	}
 
-	.blockquote-footer {
-		@extend .text-right;
-	}
-
-	.btn {
-		@extend .btn-primary;
-		@extend .btn-block;
-		@extend .mt-3;
+		.btn {
+			@extend .btn-primary;
+		}
 	}
 }
