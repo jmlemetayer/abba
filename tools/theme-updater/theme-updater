@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Move to ABBA source directory
+cd ${0%/*}/../../
+
+# For each theme found in bootswatch
+for theme in $(ls _sass/bootswatch)
+do
+	# Generate the SCSS dist file
+	cat <<- EOF > abba/css/${theme}.scss
+	---
+	---
+	@import "abba/variables";
+	@import "bootswatch/${theme}/variables";
+	@import "abba/bootstrap";
+	@import "bootswatch/${theme}/bootswatch";
+	@import "abba/main";
+	EOF
+
+	# Generate the preview files
+	mkdir -p previews/${theme}
+
+	cat <<- EOF > previews/${theme}/index.html
+	---
+	layout: autoindex
+	css_filename: ${theme}.css
+	---
+	EOF
+
+	for error in 401 403 404 500
+	do
+		cat <<- EOF > previews/${theme}/error_${error}.html
+		---
+		layout: error_${error}
+		css_filename: ${theme}.css
+		---
+		EOF
+	done
+done
