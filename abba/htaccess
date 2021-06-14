@@ -28,6 +28,10 @@
 	# Ignore ABBA assets
 	IndexIgnore .htaccess
 	IndexIgnore .abba
+	# Favicon redirection
+	<IfModule alias_module>
+		Redirect permanent "/favicon.ico" "/.abba/images/favicon.ico"
+	</IfModule>
 
 	### Table configuration
 	# Display table headers

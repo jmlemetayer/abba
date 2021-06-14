@@ -9,6 +9,8 @@
 {% else %}
 	<title>{{ page.title }}</title>
 {% endif %}
+	<link rel="icon" type="image/svg+xml" href="{{ page.asset_dir }}/images/favicon.svg">
+	<link rel="alternate icon" href="{{ page.asset_dir }}/images/favicon.ico">
 </head>
 <body>
 {% include html/body/header.html %}

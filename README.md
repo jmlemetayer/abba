@@ -1,4 +1,4 @@
-# ABBA
+# ![logo](abba/images/favicon.ico) ABBA
 Apache Bootstrap & Bootswatch Autoindex
 
 You find that the [autoindex][mod_autoindex] module on your
@@ -147,6 +147,8 @@ ABBA is released under the [MIT License](LICENSE.md).
 * [Moment.js][momentjs] _([MIT][momentjs-license])_
 * [Popper.js][popperjs] _([MIT][popperjs-license])_
 
+Icon made by [mynamepong][flaticon-mynamepong].
+
 [bootstrap]: https://github.com/twbs/bootstrap
 [bootstrap-license]: https://github.com/twbs/bootstrap/blob/main/LICENSE
 [bootswatch]: https://github.com/thomaspark/bootswatch
@@ -161,3 +163,4 @@ ABBA is released under the [MIT License](LICENSE.md).
 [popperjs-license]: https://github.com/popperjs/popper-core/blob/master/LICENSE.md
 [jekyll-compress-html]: https://github.com/penibelst/jekyll-compress-html
 [jekyll-compress-html-license]: https://github.com/penibelst/jekyll-compress-html/blob/master/LICENSE
+[flaticon-mynamepong]: https://www.flaticon.com/authors/mynamepong

@@ -2,7 +2,10 @@
 	<nav class="navbar">
 		<div class="container">
 {% if page.is_preview %}
-			<a class="navbar-brand" href="../../">ABBA</a>
+			<a class="navbar-brand" href="../../">
+				<img src="{{ page.asset_dir }}/images/favicon.svg" class="d-inline-block">
+				ABBA
+			</a>
 {% else %}
 			<a class="navbar-brand" href="/">{{ page.title }}</a>
 {% endif %}

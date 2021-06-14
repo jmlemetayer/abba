@@ -74,6 +74,7 @@ set -e
 mkdir -p .abba
 mkdir -p .abba/css
 mkdir -p .abba/html
+mkdir -p .abba/images
 mkdir -p .abba/js
 mkdir -p .abba/webfonts
 
@@ -96,6 +97,8 @@ for ERROR in 401 403 404 500
 do
 	curl -sL ${BASE_URL}/abba/html/error_${ERROR}.shtml -o .abba/html/error_${ERROR}.shtml
 done
+curl -sL ${BASE_URL}/abba/images/favicon.ico -o .abba/images/favicon.ico
+curl -sL ${BASE_URL}/abba/images/favicon.svg -o .abba/images/favicon.svg
 curl -sL ${BASE_URL}/abba/js/script.js -o .abba/js/script.js
 for FONT in fa-regular-400 fa-solid-900
 do

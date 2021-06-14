@@ -34,6 +34,11 @@ body {
 	@extend #{$abba-navbar-class};
 	@extend #{$abba-navbar-bg-class};
 
+	// Limit logo height
+	.navbar-brand img {
+		height: $navbar-brand-height;
+	}
+
 	// Put filter to the right
 	.navbar-collapse > div:only-child {
 		margin-left: auto;
