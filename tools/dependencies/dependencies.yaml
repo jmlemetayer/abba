@@ -6,7 +6,7 @@ dependencies:
     - dst: _includes/js/bootstrap/bootstrap.min.js
       src: dist/js/bootstrap.bundle.min.js
     branch: main
-    tag: v5.0.2
+    tag: v5.1.0
     url: https://github.com/twbs/bootstrap.git
   bootswatch:
     assets:
