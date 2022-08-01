@@ -44,5 +44,5 @@ dependencies:
     - dst: _includes/js/moment/moment.min.js
       src: min/moment.min.js
     branch: master
-    tag: 2.29.3
+    tag: 2.29.4
     url: https://github.com/moment/moment.git
