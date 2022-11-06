@@ -4,9 +4,6 @@
 }
 
 .table {
-	// Hoverable rows
-	@extend .table-hover;
-
 	// Disable wrapping for all cells as responsive table is used
 	td,
 	th {
@@ -44,9 +41,5 @@
 	// Expand the link to the whole row
 	tbody tr {
 		transform: rotate(0);
-
-		a {
-			@extend .stretched-link;
-		}
 	}
 }

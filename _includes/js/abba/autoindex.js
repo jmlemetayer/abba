@@ -72,7 +72,7 @@ const columns = {
 };
 
 // Use Bootstrap table
-$("table").addClass("table").wrap("<div class='table-responsive'>");
+$("table").addClass("table table-hover").wrap("<div class='table-responsive'>");
 
 // Remove valign="top" and align="right"
 $("td, th").removeAttr("align").removeAttr("valign");
@@ -99,6 +99,9 @@ $("td, th").each(function() {
 
 // Clear the icon column of the header and add a spacer
 $("thead th").eq(columns["icon"]).html($("<div/>").addClass("fa-fw"));
+
+// Make the whole row clickable
+$("tbody a").addClass("stretched-link");
 
 // Parse autoindex request query arguments
 // As mod_autoindex still use ";" as separators URLSearchParams cannot be used

@@ -29,10 +29,8 @@ body {
 
 // Navbar customization
 .navbar {
-	@extend .navbar-expand-lg;
-
-	@extend #{$abba-navbar-class};
-	@extend #{$abba-navbar-bg-class};
+	@extend #{$abba-navbar-class} !optional;
+	@extend #{$abba-navbar-bg-class} !optional;
 
 	// Limit logo height
 	.navbar-brand img {
@@ -40,7 +38,7 @@ body {
 	}
 
 	// Put filter to the right
-	.navbar-collapse > div:only-child {
+	.collapse.navbar-collapse > div:only-child {
 		margin-left: auto;
 	}
 }
