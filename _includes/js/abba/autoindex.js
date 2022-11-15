@@ -100,9 +100,6 @@ $("td, th").each(function() {
 // Clear the icon column of the header and add a spacer
 $("thead th").eq(columns["icon"]).html($("<div/>").addClass("fa-fw"));
 
-// Make the whole row clickable
-$("tbody a").addClass("stretched-link");
-
 // Parse autoindex request query arguments
 // As mod_autoindex still use ";" as separators URLSearchParams cannot be used
 // So let's create a two dimensional array with the arguments
@@ -202,23 +199,44 @@ const icon_class_by_type = {
 // Server current date
 const m_server = moment(server_date, moment.ISO_8601);
 
+// Create an empty stretched link
+function create_stretched_link(href_url) {
+	return $("<a/>")
+		.attr("href", href_url)
+		.addClass("stretched-link");
+}
+
 // Parse each row
 $("tbody > tr").each(function(index) {
 	var icon = $("td, th", this).eq(columns["icon"]);
 	var name = $("td, th", this).eq(columns["name"]);
 	var date = $("td, th", this).eq(columns["date"]);
 	var size = $("td, th", this).eq(columns["size"]);
-	var link = $("a", name);
 
-	// Read the type from the <img> alt text
+	// Read the type from the <img> alt text in the icon cell
 	var type = $("img", icon).attr("alt").replace(/[\[\] ]+/g, "");
 
-	// Replace the icon
+	// Remove the parent row
+	if (type === "parent") {
+		$(this).remove();
+		return;
+	}
+
+	// Read the url from the <a> href in the name cell
+	var href_url = $("a", name).attr("href");
+
+	// For directories only:
+	if (type === "directory") {
+		href_url += search; // Append the search query string
+		size.empty(); // And clear the size cell
+	}
+
+	// Generate a fancy icon
 	var icon_type = (type in icon_class_by_type) ? type : "default";
 	var icon_class = icon_class_by_type[icon_type];
 	icon.html(create_icon(icon_class.classes, icon_class.title));
 
-	// Beautify date
+	// Generate a beautified date string
 	var m = moment(date.html(), "YYYY-MM-DD HH:mm");
 
 	if (m_server.diff(m, "days", true) < 1) {
@@ -231,13 +249,15 @@ $("tbody > tr").each(function(index) {
 		date.html(m.format("LLL"));
 	}
 
-	// Remove the parent row
-	if (type === "parent") {
-		$(this).remove();
+	// Generate stretched links in all cells to give the illusion
+	// of a complete row for better compatibility.
+	// https://github.com/twbs/bootstrap/issues/28608#issuecomment-614881795
+	icon.append(create_stretched_link(href_url));
+	$("a", name).attr("href", href_url).addClass("stretched-link");
+	date.append(create_stretched_link(href_url));
+	size.append(create_stretched_link(href_url));
 
-	// Update directory style
-	} else if (type === "directory") {
-		link.attr("href", link.attr("href") + search);
-		size.empty();
-	}
+	$("td, th", this).each(function(index) {
+		$(this).wrapInner("<div class='position-relative'>");
+	});
 });

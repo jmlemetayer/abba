@@ -32,14 +32,30 @@
 		@extend .text-center;
 	}
 
-	// Increase spacing between the columns
-	tbody td:not(:first-child),
-	thead th:not(:first-child) {
-		padding-left: 2 * $table-cell-padding-x;
+	// Stretched link wrapper padding
+	tbody td,
+	tbody th {
+		@extend .p-0;
+
+		.position-relative {
+			padding: $table-cell-padding-y $table-cell-padding-x;
+		}
 	}
 
-	// Expand the link to the whole row
-	tbody tr {
-		transform: rotate(0);
+	// Stretched link full height
+	// https://stackoverflow.com/a/3542470/2893600
+	tbody td,
+	tbody th {
+		height: 1px;
+
+		.position-relative {
+			@extend .h-100;
+		}
+	}
+
+	// Increase spacing between the columns
+	tbody td:not(:first-child) .position-relative,
+	thead th:not(:first-child) {
+		padding-left: 2 * $table-cell-padding-x;
 	}
 }
