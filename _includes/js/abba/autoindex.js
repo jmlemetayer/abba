@@ -228,7 +228,7 @@ $("tbody > tr").each(function(index) {
 	// For directories only:
 	if (type === "directory") {
 		href_url += search; // Append the search query string
-		size.empty(); // And clear the size cell
+		size.html("&nbsp;"); // And clear the size cell
 	}
 
 	// Generate a fancy icon

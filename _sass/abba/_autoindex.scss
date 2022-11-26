@@ -46,7 +46,7 @@
 	// https://stackoverflow.com/a/3542470/2893600
 	tbody td,
 	tbody th {
-		height: 1px;
+		min-height: 1px;
 
 		.position-relative {
 			@extend .h-100;
