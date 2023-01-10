@@ -1,0 +1,22 @@
+name: Update GitHub Actions versions
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  ghactions-autoupdate:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out the repo
+      uses: actions/checkout@v3.3.0
+      with:
+        token: ${{ secrets.WORKFLOW_TOKEN }}
+
+    - name: Run GitHub Actions Version Updater
+      uses: saadmk11/github-actions-version-updater@v0.7.3
+      with:
+        token: ${{ secrets.WORKFLOW_TOKEN }}
+        pull_request_branch: 'ghactions-autoupdate'
+        commit_message: 'ghactions: github action autoupdate'
