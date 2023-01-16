@@ -53,9 +53,16 @@
 	# Configure alt text by types
 	AddAlt parent ..
 	AddAlt directory ^^DIRECTORY^^
-	AddAltByType text text/*
-	AddAltByType image image/*
+	AddAltByType archive application/x-7z-compressed
+	AddAltByType archive application/x-bzip2
+	AddAltByType archive application/x-gtar
+	AddAltByType archive application/x-gzip
+	AddAltByType archive application/x-tar
+	AddAltByType archive application/x-xz
+	AddAltByType archive application/zip
 	AddAltByType audio audio/*
+	AddAltByType image image/*
+	AddAltByType text text/*
 	AddAltByType video video/*
 
 	### Sorting options
