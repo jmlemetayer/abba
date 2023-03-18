@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out the repo"
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.4.0
 
       - name: "Setup python"
         uses: actions/setup-python@v4.5.0
@@ -30,7 +30,7 @@ jobs:
           ./tools/dependencies/update_dependencies
 
       - name: "Create Pull Request"
-        uses: peter-evans/create-pull-request@v4.2.3
+        uses: peter-evans/create-pull-request@v4.2.4
         with:
           title: "Update dependencies"
           body: "ABBA dependency updates"
