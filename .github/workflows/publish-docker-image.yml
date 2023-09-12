@@ -25,7 +25,7 @@ jobs:
             latest=true
 
       - name: "Build and push Docker image"
-        uses: docker/build-push-action@v4.1.1
+        uses: docker/build-push-action@v4.2.1
         with:
           context: docker
           push: true
