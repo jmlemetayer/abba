@@ -1,4 +1,4 @@
-// Lux 5.2.2
+// Lux 5.3.2
 // Bootswatch
 
 $theme: "lux" !default;
@@ -53,6 +53,15 @@ $body-color:                $gray-700 !default;
 
 // stylelint-disable-next-line value-keyword-case
 $font-family-sans-serif:      "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           200 !default;
+$font-weight-normal:          300 !default;
+$font-weight-medium:          400 !default;
+$font-weight-semibold:        500 !default;
+$font-weight-bold:            600 !default;
+$font-weight-bolder:          bolder !default;
+
 $h1-font-size:                2rem !default;
 $h2-font-size:                1.75rem !default;
 $h3-font-size:                1.5rem !default;
@@ -87,6 +96,9 @@ $input-line-height:                     1.5 !default;
 $input-bg:                              $gray-200 !default;
 $input-disabled-bg:                     $gray-300 !default;
 $input-group-addon-bg:                  $gray-300 !default;
+
+$form-select-disabled-color:        $gray-600 !default;
+$form-select-disabled-bg:           $input-disabled-bg !default;
 
 // Navbar
 
