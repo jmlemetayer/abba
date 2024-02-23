@@ -6,7 +6,7 @@ dependencies:
     - dst: _includes/js/bootstrap/bootstrap.min.js
       src: dist/js/bootstrap.bundle.min.js
     branch: main
-    tag: v5.2.3
+    tag: v5.3.3
     url: https://github.com/twbs/bootstrap.git
   bootswatch:
     assets:
@@ -15,7 +15,7 @@ dependencies:
       - '**/*.scss'
       src: dist
     branch: master
-    tag: v5.2.3
+    tag: v5.3.1
     url: https://github.com/thomaspark/bootswatch.git
   fontawesome:
     assets:
@@ -37,12 +37,12 @@ dependencies:
     assets:
     - dst: _includes/js/jquery/jquery.slim.min.js
       url: https://code.jquery.com/jquery-${tag}.slim.min.js
-    tag: 3.6.4
+    tag: 4.0.0-beta
     url: https://github.com/jquery/jquery.git
   momentjs:
     assets:
     - dst: _includes/js/moment/moment.min.js
       src: min/moment.min.js
     branch: master
-    tag: 2.29.4
+    tag: 2.30.1
     url: https://github.com/moment/moment.git
